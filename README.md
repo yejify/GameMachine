@@ -4,6 +4,7 @@
 ![tictactoe-home](https://user-images.githubusercontent.com/99380780/236129218-35a824f5-3023-4b4b-85b4-07d40a95b666.png)
 
 ## 기능
+- O, X에 hover 기능 넣기
 - O를 클릭하면 본인이 O, 컴퓨터가 X. 
 - X를 클릭하면 본인이 X, 컴퓨터가 O.
 - 둘 중 무엇이든 클릭하며 메인 게임으로 넘어감.
