@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'NeoDunggeunmo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+img {
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'NeoDunggeunmo';
+    background-color: #205B82;
+    box-shadow: 0 0 20px red;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background: inherit;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    overflow: visible;
+    cursor: pointer
+}
+
+h1 {
+    margin: 0;
+}
+
+.card-game-header {
+    text-align: center;
+    font-size: 40px;
+    color: #FBB041;
+    text-shadow: 3px 4px 5px red;
+    padding: 20px;
+}
+
+.container {
+    border-radius: 20px;
+    max-width: 1000px;
+    margin: 0 150px;
+    display: grid;
+    background-color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    /* 이것도 유동적으로 넣어 줘야 할 것 같다 */
+    grid-template-columns: repeat(auto-fit, minmax(18%, auto));
+    justify-content: center;
+    row-gap: 20px;
+    border: 3px solid blue;
+    box-sizing: border-box;
+}
+
+.card-item {
+    margin: 0 auto;
+    height: 180px;
+    position: relative;
+    perspective: 1300px;
+
+}
+
+.card {
+    border: 2px solid #E28F25;
+    border-radius: 10px;
+    object-fit: cover;
+    backface-visibility: hidden;
+    transition: 2s;
+}
+
+.card img {
+    width: 115px;
+}
+
+.card.back {
+    padding: 0;
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+}
+
+.card.front {
+    position: absolute;
+    transform: rotateY(0deg);
+}
+
+.card-item:hover .front {
+    transform: rotateY(180deg);
+}
+
+.card-item:hover .back {
+    transform: rotateY(0deg);
+}
+
+.record {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+}
+
+.btn-start {
+    font-family: 'NeoDunggeunmo';
+    font-size: 40px;
+    color: #FBB041;
+    text-shadow: 3px 4px 5px red;
+}
+
+.btn-start:active {
+    text-shadow: none;
+}
+
+.timer {
+    font-size: 50px;
+}
