@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(24, 23, 23);
+}
+.main {
+    position: relative;
+    box-shadow: 0 0 10px red;
+}
+.main img {
+    width: 92%;
+    margin: 0 auto;
+    display: block;
+}
+.game-page:nth-child(1) {
+    position: absolute;
+    display: flex;
+    top: 15%;
+    left: 23%;
+}
+.game-page:nth-child(2) {
+    position: absolute;
+    display: flex;
+    top: 35%;
+    left: 15%;
+}
+
+.page {
+    background-color: white;
+    margin-left: 30px;
+    width: 15vw;
+    height: 8vw;
+    border-radius: 20px;
+}
