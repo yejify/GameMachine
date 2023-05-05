@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "NeoDunggeunmo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body,
+h1,
+p {
+  margin: 0;
+}
+button {
+  border: 0;
+  padding: 0;
+  background: inherit;
+  font-family: "NeoDunggeunmo";
+}
+.container {
+  width: 500px;
+  margin: 30px auto;
+  font-family: "NeoDunggeunmo";
+}
+header {
+  text-align: center;
+  font-size: 54px;
+  letter-spacing: 8px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 14px;
+}
+main .btn-new {
+  align-self: center;
+  width: 200px;
+  padding: 8px;
+  background-color: #84a487;
+  color: white;
+  font-size: 30px;
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+}
+.section-score {
+  display: flex;
+  justify-content: space-evenly;
+}
+.section-score .score {
+  width: 200px;
+  padding: 10px;
+  background-color: #84a487;
+  color: white;
+  font-size: 24px;
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+}
+.section-game .game-container {
+  background-color: #84a487;
+  width: 500px;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.section-game .row {
+  display: flex;
+}
+.section-game .row:last-child .cell {
+  margin-bottom: 0;
+}
+.section-game .cell {
+  font-size: 40px;
+  line-height: 110px;
+  background-color: #f6fff4;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  width: 106.5px;
+  height: 110px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+.section-game .cell:last-child {
+  margin-right: 0;
+}
