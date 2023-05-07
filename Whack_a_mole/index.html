@@ -9,7 +9,7 @@
   </head>
   <body>
     <h1>WHACK A MOLE</h1>
-    <section id="ground">
+    <section id="ground" class="a11y-hidden">
       <ul>
         <li class="hole">
           <img src="../assets/hole.PNG" alt="구멍">
@@ -42,10 +42,10 @@
       </ul>
       <button id="startBtn">START</button>
     </section>
-    <section id="gameResult" class="a11y-hidden">
+    <section id="gameResult">
       <p>SCORE</p>
-      <p>70</p>
-      <button id="restartBtn">RESTART</button>
+      <p id="resultScore">70</p>
+      <button id="restartBtn">RESTART</button><br>
       <button id="homeBtn">HOME</button>
     </section>
     <script src="./index.js"></script>
