@@ -15,7 +15,7 @@
     background-color: black;
     color: #fff;
     height: 80vh;
-    width: 80vw;
+    width: 613px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -31,6 +31,7 @@
 /* header */
 .sue-title {
     font-size: 4rem;
+    text-shadow: 7px 4px 2px goldenrod;
 }
 
 /* main */
@@ -47,11 +48,31 @@
     font-size: 7rem;
 }
 
+.sue-main span:hover {
+    text-shadow: 7px 4px 2px goldenrod;
+}
+
 /* footer */
 .sue-footer {
     font-size: 2.5rem;
 }
 
+@keyframes blink-effect {
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink-effect 1s step-end infinite;
+
+    /*
+    animation-name: blink-effect;
+    animation-duration: 1s;
+    animation-iteration-count:infinite;
+    animation-timing-function:step-end;
+    */
+}
 
 /* 메인 게임 화면 */
 .sue-game-board {
@@ -66,4 +87,11 @@
 
 .sue-board-box {
     border: 2px solid #fff;
+}
+
+.sue-score {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    font-size: 1.2rem;
 }
