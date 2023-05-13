@@ -21,6 +21,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-color: #4D9854;
 }
 
 .a11y-hidden {
@@ -58,6 +59,7 @@ button{
     overflow: hidden;
     text-align: center;
     position: relative;
+    height: 160px;
 }
 
 img{
