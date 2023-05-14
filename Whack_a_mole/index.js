@@ -52,7 +52,7 @@ function catchMole(e){
     const clickTaget = e.target.getAttribute("id");
 
     //클릭 감지, 10번이면 결과페이지로 넘어가기
-    if(clickCount === 10){
+    if(clickCount === 9){
         const ground = document.querySelector('#ground');
         const gameResult = document.querySelector('#gameResult');
         ground.classList.add("a11y-hidden");
@@ -85,12 +85,8 @@ function reloadGame(){
     location.reload();
 }
 
-
 //두더지 잡기 클릭이벤트
 document.querySelector("ul").addEventListener("click", catchMole);
 
 //restart 버튼 클릭이벤트
 document.querySelector("#restartBtn").addEventListener("click", reloadGame);
-
-//home 버튼 클릭이벤트
-document.querySelector("#homeBtn").addEventListener("click", );

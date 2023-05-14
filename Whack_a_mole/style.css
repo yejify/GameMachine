@@ -35,6 +35,14 @@ ul {
 	position: absolute;
 }
 
+a{
+    display: block;
+    text-decoration: none;
+    line-height: 69px;
+    margin: auto;
+    cursor: pointer;
+}
+
 h1{
     font-size: 60px;
 }
