@@ -1,0 +1,105 @@
+/* reset */
+h1,
+p,
+div,
+section,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+button {
+  border: 0;
+  outline: 0;
+}
+
+/* style */
+@font-face {
+  font-family: "NeoDunggeunmo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #2e294e;
+  font-family: "NeoDunggeunmo";
+}
+
+.container {
+  text-align: center;
+  /* margin-top: 20px; */
+}
+
+.container h1 {
+  color: #d399b9;
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+.container canvas {
+  border: 1px dashed #fff;
+  width: 500px;
+  height: 400px;
+  margin-top: 20px;
+}
+.container ul {
+  display: flex;
+  gap: 0 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.container ul li {
+  font-size: 35px;
+  /* margin: 0 auto; */
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  border-bottom: 3px solid #fff;
+}
+.container strong {
+  color: #b1397b;
+  font-size: 30px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.buttons {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.buttons button {
+  width: 40px;
+  height: 40px;
+  background-color: #041638;
+  color: #fff;
+  font-size: 15px;
+  margin-top: 10px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.buttons button:not(:first-child) {
+  margin-left: 10px;
+}
+
+.buttons button:hover {
+  border: 1px solid #fff;
+}
+
+.buttons button .checked {
+  background-color: #202346;
+  color: #555472;
+  pointer-events: none;
+}
