@@ -111,3 +111,7 @@ p{
     font-size: 120px;
     margin: 108px auto;
 }
+
+#pointer{
+    cursor: pointer;
+}

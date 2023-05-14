@@ -37,6 +37,10 @@ function startBtnClick(){
     const startBtn = document.querySelector("#startBtn");
     startBtn.classList.add("a11y-hidden");
 
+    //이미지에 커서 포인터 css적용
+    const selectImg = document.querySelectorAll("img");
+    //위 이미지 각각에 전부 class 줘야 하는데 뭘 써야 하더라..
+
 }
 
 //게임 스타트 버튼 클릭 이벤트
