@@ -18,7 +18,7 @@ function randomTile() {
   // const randomCell = cells[randomNumber];
   // 해당 셀에 이미 타일 있다면 (.tile 이외의 클래스를 가진 타일이라면)
   if (hasOtherClasses) {
-    return tile(); // 다른 타일 선택
+    return randomTile(); // 다른 타일 선택
   } else {
     const randomNumber2 = Math.random() < 0.9 ? 2 : 4;
     tile.classList.add(`tile-${randomNumber2}`);
@@ -31,26 +31,48 @@ function randomTile() {
 randomTile();
 randomTile();
 
+// 키보드 이벤트
+document.addEventListener("keydown", (event) => {
+  console.log(event.key);
+  if (event.key === "ArrowUp") {
+    moveTile("up");
+  } else if (event.key === "ArrowDown") {
+    moveTile("down");
+  } else if (event.key === "ArrowLeft") {
+    moveTile("left");
+  } else if (event.key === "ArrowRight") {
+    moveTile("right");
+  }
+});
+
 // 타일 이동
 const moveTile = (direction) => {
   const tileElements = document.querySelectorAll(".tile");
 
   // 위로 이동
   if (direction === "up") {
+    console.log("실행됨");
     for (let i = 4; i < tileElements.length; i++) {
       const tile = tileElements[i];
       const topTile = tileElements[i - 4];
-      if (!topTile) continue;
+      // if (!topTile) continue;
 
       if (!topTile.classList.contains("tile")) {
+        console.log("빈타일이였음");
         topTile.appendChild(tile);
         i -= 5;
       } else if (topTile.classList.contains(tile.classList[1])) {
-        topTile.classList.remove(tile.classList[1]);
-        const tileValue = parseInt(topTile.classList[1]);
+        /**
+         *  !같은 숫자인 경우에만 합쳐지는 조건 추가해야함
+         * */
+        console.log("합쳐짐");
+        const tileValue = topTile.classList[1].replace(/\D/g, "");
         const newValue = tileValue * 2;
+        topTile.classList.remove(tile.classList[1]);
         topTile.classList.add(`tile-${newValue}`);
-        tile.remove();
+        topTile.textContent = `${newValue}`;
+        tile.classList.remove(tile.classList[1]);
+        tile.textContent = "";
       }
     }
   }
@@ -113,19 +135,6 @@ const moveTile = (direction) => {
 
       randomTile();
     }
-
-    // 이동 방향
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowUp") {
-        moveTile("up");
-      } else if (event.key === "ArrowDown") {
-        moveTile("down");
-      } else if (event.key === "ArrowLeft") {
-        moveTile("left");
-      } else if (event.key === "ArrowRight") {
-        moveTile("right");
-      }
-    });
 
     //     // 게임 종료 체크
     //     const checkGameOver = () => {
