@@ -8,22 +8,22 @@ for (let i = 0; i < 4; i++) {
     board.appendChild(cell);
   }
 }
-console.log(cells);
+// console.log(cells);
 // 타일 생성
 function randomTile() {
-  const tile = document.querySelector(".tile");
+  const tiles = document.querySelectorAll(".tile");
+  const tile = tiles[Math.floor(Math.random() * tiles.length)];
   // tile 클래스 이외에 다른 클래스가 있는지 검사
   const hasOtherClasses = [...tile.classList].some((cls) => cls !== "tile");
-  const randomNumber = Math.floor(Math.random() * 16);
-  const randomCell = cells[randomNumber];
-  // 해당 셀에 이미 타일 있다면
+  // const randomCell = cells[randomNumber];
+  // 해당 셀에 이미 타일 있다면 (.tile 이외의 클래스를 가진 타일이라면)
   if (hasOtherClasses) {
-    return randomTile();
+    return tile(); // 다른 타일 선택
   } else {
     const randomNumber2 = Math.random() < 0.9 ? 2 : 4;
-    tile.classList.add("tile", `tile-${randomNumber2}`);
+    tile.classList.add(`tile-${randomNumber2}`);
     tile.textContent = randomNumber2;
-    randomCell.appendChild(tile);
+    // randomCell.appendChild(tile);
   }
 }
 
@@ -127,35 +127,35 @@ const moveTile = (direction) => {
       }
     });
 
-    // 게임 종료 체크
-    const checkGameOver = () => {
-      const tileElements = document.querySelectorAll(".tile");
+    //     // 게임 종료 체크
+    //     const checkGameOver = () => {
+    //       const tileElements = document.querySelectorAll(".tile");
 
-      for (let i = 0; i < tileElements.length; i++) {
-        const tile = tileElements[i];
-        if (
-          tile.classList.contains("tile-2048") ||
-          (i % 4 !== 3 &&
-            tile.classList.contains(tileElements[i + 1].classList[1])) ||
-          (i < 12 && tile.classList.contains(tileElements[i + 4].classList[1]))
-        ) {
-          return false;
-        }
-      }
+    //       for (let i = 0; i < tileElements.length; i++) {
+    //         const tile = tileElements[i];
+    //         if (
+    //           tile.classList.contains("tile-2048") ||
+    //           (i % 4 !== 3 &&
+    //             tile.classList.contains(tileElements[i + 1].classList[1])) ||
+    //           (i < 12 && tile.classList.contains(tileElements[i + 4].classList[1]))
+    //         ) {
+    //           return false;
+    //         }
+    //       }
 
-      return true;
-    };
+    //       return true;
+    //     };
 
-    // 게임 종료
-    const endGame = () => {
-      alert("게임 종료!");
-    };
+    //     // 게임 종료
+    //     const endGame = () => {
+    //       alert("게임 종료!");
+    //     };
 
-    // 게임 상태 체크
-    setInterval(() => {
-      if (checkGameOver()) {
-        endGame();
-      }
-    }, 1000);
+    //     // 게임 상태 체크
+    //     setInterval(() => {
+    //       if (checkGameOver()) {
+    //         endGame();
+    //       }
+    //     }, 1000);
   }
 };
