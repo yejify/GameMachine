@@ -71,57 +71,57 @@ main .btn-new {
   height: 141px;
   box-sizing: border-box;
 }
-.tile-2 {
+.section-game .tile-2 {
   background-color: #eee4da;
   color: #776e65;
 }
 
-.tile-4 {
+.section-game .tile-4 {
   background-color: #ede0c8;
   color: #776e65;
 }
 
-.tile-8 {
+.section-game .tile-8 {
   background-color: #f2b179;
   color: white;
 }
 
-.tile-16 {
+.section-game .tile-16 {
   background-color: #f59563;
   color: white;
 }
 
-.tile-32 {
+.section-game .tile-32 {
   background-color: #f67c5f;
   color: white;
 }
 
-.tile-64 {
+.section-game .tile-64 {
   background-color: #f65e3b;
   color: white;
 }
 
-.tile-128 {
+.section-game .tile-128 {
   background-color: #edcf72;
   color: white;
 }
 
-.tile-256 {
+.section-game .tile-256 {
   background-color: #edcc61;
   color: white;
 }
 
-.tile-512 {
+.section-game .tile-512 {
   background-color: #edc850;
   color: white;
 }
 
-.tile-1024 {
+.section-game .tile-1024 {
   background-color: #edc53f;
   color: white;
 }
 
-.tile-2048 {
+.section-game .tile-2048 {
   background-color: #edc22e;
   color: white;
 }
