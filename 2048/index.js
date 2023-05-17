@@ -39,44 +39,28 @@ function randomTile() {
 // 화면에 반영
 function setTile() {
   for (let i = 0; i < 16; i++) {
+    // numArr를 cells에 반영
     cells[i].innerHTML = numArr[i] != 0 ? numArr[i] : "";
-    const classList = Array.from(cells[i].classList);
+    const cellClassList = Array.from(cells[i].classList);
+    // cells에 클래스 추가
     if (numArr[i] !== 0) {
       cells[i].classList.add(`tile-${numArr[i]}`);
     } else if (numArr[i] == 0) {
       cells[i].innerHTML = "";
-      classList.forEach((cls) => {
+      cellClassList.forEach((cls) => {
         if (cls !== "tile") {
           cells[i].classList.remove(cls);
         }
       });
     }
-    console.log(classList);
-    if (classList.length > 2) {
-      /**
-       * ! tile과 타일의 숫자와 해당하는 tile-num 을 제외하고 삭제하기
-       */
-      for (let i = 2; i < classList.length; i++) {
-        cells[i].classList.remove(classList[i]);
+    // 셀의 클래스리스트의 길이가 3 이상인 경우, 필요없는 클래스 삭제
+    if (cellClassList.length > 2) {
+      for (let k = 1; k < cellClassList.length - 1; k++) {
+        cells[i].classList.remove(cellClassList[k]);
       }
     }
   }
 }
-//   const tiles = document.querySelectorAll(".tile");
-//   const tile = tiles[Math.floor(Math.random() * 16)];
-//   // tile 클래스 이외에 다른 클래스가 있는지 검사
-//   const hasOtherClasses = [...tile.classList].some((cls) => cls !== "tile");
-//   // const randomCell = cells[randomNumber];
-//   // 해당 셀에 이미 타일 있다면 (.tile 이외의 클래스를 가진 타일이라면)
-//   if (hasOtherClasses) {
-//     return randomTile(); // 다른 타일 선택
-//   } else {
-//     // const randomNumber2 = Math.random() < 0.9 ? 2 : 4;
-//     tile.classList.add(`tile-${randomNumber2}`);
-//     tile.textContent = randomNumber2;
-//     // randomCell.appendChild(tile);
-//   }
-// }
 
 // 게임 시작
 gameInit();
