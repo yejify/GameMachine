@@ -1,3 +1,7 @@
+/**
+ * ! 상하좌우 이동 시 한번에 한쌍의 타일만 합쳐지는 문제
+ * ! 이동할 때 합쳐질 수 있는 모든 쌍의 타일이 합쳐져야 함
+ */
 const board = document.querySelector(".game-container");
 const cells = [];
 const numArr = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -10,7 +14,10 @@ for (let i = 0; i < 4; i++) {
     board.appendChild(cell);
   }
 }
-
+const newGameBtn = document.querySelector(".btn-new");
+newGameBtn.addEventListener("click", () => {
+  gameInit();
+});
 // 게임 초기화
 function gameInit() {
   for (let i = 0; i < 16; i++) {

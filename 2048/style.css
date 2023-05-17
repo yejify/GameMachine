@@ -24,6 +24,7 @@ button {
   padding: 0;
   background: inherit;
   font-family: "NeoDunggeunmo";
+  cursor: pointer;
 }
 .container {
   width: 640px;
