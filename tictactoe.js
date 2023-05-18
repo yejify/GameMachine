@@ -37,6 +37,18 @@ let sueCurrentPlayer = "O"; // O를 선택하면 항상 게임 먼저 시작하�
 let sueRunning = false;
 let sueGameEnded = false;
 
+function sueStartGame() {
+    sueStartCells = ["", "", "", "", "", "", "", "", ""];
+    sueCurrentPlayer = "O";
+    sueRunning = true;
+    sueGameEnded = false;
+    console.log("Current player: " + sueCurrentPlayer);
+
+    sueCells.forEach(cell => {
+        cell.addEventListener('click', cellClickHandler);
+    });
+}
+
 // 셀 선택시 
 function cellClickHandler() {
     if (!sueRunning || sueGameEnded) return;
@@ -48,12 +60,10 @@ function cellClickHandler() {
         sueStartCells[index] = sueCurrentPlayer;
         cell.textContent = sueCurrentPlayer;
 
-        if (sueGameWin()) {
-            sueGameEnded = true;
-            sueCells.forEach(cell => {
-                cell.removeEventListener('click', cellClickHandler);
-            });
-            return;
+        const winner = sueGameWin();
+        if (winner) {
+          sueEndGame(winner);
+          return;
         }
 
         sueCurrentPlayer = sueCurrentPlayer === "O" ? "X" : "O";
@@ -76,21 +86,53 @@ const sueGameWin = () => {
             sueStartCells[a] === sueStartCells[b] &&
             sueStartCells[a] === sueStartCells[c]
         ) {
-            return true; // 둘 중 한 명이라도 게임에서 이겼을 경우
+            return sueStartCells[a]; // 이긴 플레이어 반환
         }
     }
-    return false; // 아무도 게임에서 이기지 않았을 경우
+    return ""; // 아무도 게임에서 이기지 않았을 경우
 }
 
-function sueStartGame() {
-    sueStartCells = ["", "", "", "", "", "", "", "", ""];
-    sueCurrentPlayer = "O";
-    sueRunning = true;
-    sueGameEnded = false;
-    console.log("Current player: " + sueCurrentPlayer);
-
+//게임 종료 후 처리
+function sueEndGame(winner) {
+    sueGameEnded = true;
     sueCells.forEach(cell => {
-        cell.addEventListener('click', cellClickHandler);
+      cell.removeEventListener('click', cellClickHandler);
     });
+  
+    if (winner === suePlayer) {
+      sueShowModal("Congrats! You won.");
+    } else if (winner === sueComputer) {
+      sueShowModal("The computer wins.");
+    } else {
+      sueShowModal("It's a tie!");
+    }
+  }
+  
+
+// 게임 결과 메시지 모달 창
+const sueModal = document.getElementById('sueModal');
+    // 승부 결과 메시지와 함께 모달 창 띄우기
+function sueShowModal(message) {
+    const modalText = document.getElementById('sueModalText');
+
+    modalText.textContent = message;
+    sueModal.style.display = 'block';
 }
+
+    // 모달창 숨기기
+function hideModal() {
+    sueModal.style.display = 'none';
+}
+
+    // 게임 끝난 후 이 상태로 쭉 진행할 것인지, 처음부터 다시 시작할 것인지 선택하기
+const sueContinueBtn = document.getElementById('sueContinueBtn');
+const sueResetBtn = document.getElementById('sueResetBtn');
+
+sueContinueBtn.addEventListener('click', function() {
+    hideModal();
+})
+
+sueResetBtn.addEventListener('click', function() {
+    hideModal();
+})
 
