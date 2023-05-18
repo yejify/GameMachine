@@ -100,7 +100,7 @@ function sueEndGame(winner) {
     });
   
     if (winner === suePlayer) {
-      sueShowModal("Congrats! You won.");
+      sueShowModal("Congrats, You won!");
     } else if (winner === sueComputer) {
       sueShowModal("The computer wins.");
     } else {
@@ -130,6 +130,7 @@ const sueResetBtn = document.getElementById('sueResetBtn');
 
 sueContinueBtn.addEventListener('click', function() {
     hideModal();
+    sueStartCells = ["", "", "", "", "", "", "", "", ""];
 })
 
 sueResetBtn.addEventListener('click', function() {

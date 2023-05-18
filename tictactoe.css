@@ -46,6 +46,7 @@
 
 .sue-main span {
     font-size: 7rem;
+    cursor: pointer;
 }
 
 .sue-main span:hover {
