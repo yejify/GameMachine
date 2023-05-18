@@ -22,20 +22,21 @@
         <footer class="sue-footer blink">Choose a side</footer>
     </div>
 
+    <!-- 게임 화면 -->
     <div id="sue-game-screen" class="sue-game-tictactoe" style="display: none;">
         <header class="sue-title">
             <p class="sue-title-p">TIC TAC TOE</p>
         </header>
         <main class="sue-game-board">
-            <div class="sue-board-box"></div>
-            <div class="sue-board-box"></div>
-            <div class="sue-board-box"></div>
-            <div class="sue-board-box"></div>
-            <div class="sue-board-box"></div>
-            <div class="sue-board-box"></div>
-            <div class="sue-board-box"></div>
-            <div class="sue-board-box"></div>
-            <div class="sue-board-box"></div>
+            <div data-cell-index="0" class="sue-cell"></div>
+            <div data-cell-index="1" class="sue-cell"></div>
+            <div data-cell-index="2" class="sue-cell"></div>
+            <div data-cell-index="3" class="sue-cell"></div>
+            <div data-cell-index="4" class="sue-cell"></div>
+            <div data-cell-index="5" class="sue-cell"></div>
+            <div data-cell-index="6" class="sue-cell"></div>
+            <div data-cell-index="7" class="sue-cell"></div>
+            <div data-cell-index="8" class="sue-cell"></div>
         </main>
         <footer>
             <div class="sue-score">
@@ -46,6 +47,16 @@
         </footer>
     </div>
 
+    <!-- 게임 결과 모달창 -->
+    <div id="sueModal" class="sue-modal">
+        <div class="sue-modal-content">
+            <p id="sueModalText"></p>
+            <div class="sue-modal-buttons">
+                <button id="sueContinueBtn">Continue</button>
+                <button id="sueResetBtn">Reset</button>
+            </div>
+        </div>
+    </div>
 
     <script src="tictactoe.js"></script>
 </body>

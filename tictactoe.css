@@ -85,7 +85,10 @@
     margin: 0 auto;
 }
 
-.sue-board-box {
+.sue-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid #fff;
 }
 
@@ -94,4 +97,34 @@
     justify-content: space-evenly;
     margin-top: 30px;
     font-size: 1.2rem;
+}
+
+/* 게임 결과 모달창 */
+.sue-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sue-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    text-align: center;
+}
+
+.sue-modal-buttons {
+    margin-top: 20px;
+}
+
+.sue-modal-buttons button {
+    margin-right: 10px;
 }
