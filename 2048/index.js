@@ -1,6 +1,7 @@
 const board = document.querySelector(".game-container");
 const cells = [];
 const numArr = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+const gameOverBox = document.querySelector(".gameOverBox");
 let score = 0;
 for (let i = 0; i < 4; i++) {
   for (let j = 0; j < 4; j++) {
@@ -10,8 +11,15 @@ for (let i = 0; i < 4; i++) {
     board.appendChild(cell);
   }
 }
+// 새게임 버튼
 const newGameBtn = document.querySelector(".btn-new");
 newGameBtn.addEventListener("click", () => {
+  gameInit();
+});
+// 게임 오버 후 새게임 버튼
+const restartBtn = document.querySelector(".gameOverBox button");
+restartBtn.addEventListener("click", () => {
+  gameOverBox.style.visibility = "hidden";
   gameInit();
 });
 // 게임 초기화
@@ -285,9 +293,7 @@ function checkCanMoveTiles() {
 }
 
 function gameOver() {
-  alert("Game Over");
-  gameInit();
-  const container = document.querySelector(".container");
+  gameOverBox.style.visibility = "inherit";
 }
 // 타일 이동(구버전)
 // const moveTile = (direction) => {

@@ -67,6 +67,7 @@ main .gameOverBox {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   color: rgb(253, 253, 253);
   top: 50%;
   left: 50%;
@@ -89,6 +90,14 @@ main .gameOverBox h2 {
 }
 main .gameOverBox p {
   font-size: 72px;
+}
+main .gameOverBox button {
+  background-color: #6211d6;
+  width: 250px;
+  height: 100px;
+  color: #fff;
+  font-size: 46px;
+  padding: 10px;
 }
 main .btn-new {
   align-self: center;
