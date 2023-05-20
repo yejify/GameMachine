@@ -26,7 +26,7 @@ function gameInit() {
   randomTile();
   setBestScore();
 }
-
+// 게임 종료 시 현재 점수를 보여주는 함수
 // 타일 생성
 function randomTile() {
   let createTile = false;
@@ -126,7 +126,7 @@ const moveTile2 = (direction) => {
     if (isMoved) {
       randomTile();
     } else {
-      console.log("종료인지 체크하기");
+      checkCanMoveTiles() === false ? gameOver() : null;
     }
   } else if (direction === "down") {
     for (let i = 11; i > 7; i--) {
@@ -158,7 +158,7 @@ const moveTile2 = (direction) => {
     if (isMoved) {
       randomTile();
     } else {
-      console.log("종료 체크");
+      checkCanMoveTiles() === false ? gameOver() : null;
     }
   } else if (direction === "left") {
     for (let i = 13; i > 0; i -= 4) {
@@ -193,7 +193,7 @@ const moveTile2 = (direction) => {
     if (isMoved) {
       randomTile();
     } else {
-      console.log("종료 확인");
+      checkCanMoveTiles() === false ? gameOver() : null;
     }
   } else if (direction === "right") {
     for (let i = 14; i > 0; i -= 4) {
@@ -228,7 +228,7 @@ const moveTile2 = (direction) => {
     if (isMoved) {
       randomTile();
     } else {
-      console.log("종료 확인");
+      checkCanMoveTiles() === false ? gameOver() : null;
     }
   }
   // 베스트 점수 반영
@@ -238,7 +238,57 @@ const moveTile2 = (direction) => {
     setBestScore(score);
   }
 };
+function getAdjacentTiles(index) {
+  const adjacentTiles = [];
 
+  const topIndex = index - 4;
+  const bottomIndex = index + 4;
+  const leftIndex = index % 4 === 0 ? -1 : index - 1;
+  const rightIndex = (index + 1) % 4 === 0 ? -1 : index + 1;
+
+  if (topIndex >= 0) {
+    adjacentTiles.push(numArr[topIndex]);
+  }
+  if (bottomIndex < numArr.length) {
+    adjacentTiles.push(numArr[bottomIndex]);
+  }
+  if (leftIndex >= 0) {
+    adjacentTiles.push(numArr[leftIndex]);
+  }
+  if (rightIndex < numArr.length) {
+    adjacentTiles.push(numArr[rightIndex]);
+  }
+
+  return adjacentTiles;
+}
+function checkCanMoveTiles() {
+  for (let i = 0; i < numArr.length; i++) {
+    const currentTile = numArr[i];
+
+    // 현재 타일이 비어있는 경우 스킵
+    if (currentTile === 0) {
+      continue;
+    }
+
+    // 상하좌우에 인접한 타일 확인
+    const adjacentTiles = getAdjacentTiles(i);
+
+    // 이동 가능한 타일이 있는지 확인
+    for (const adjacentTile of adjacentTiles) {
+      if (adjacentTile === 0 || adjacentTile === currentTile) {
+        return true; // 이동 가능한 타일이 있음
+      }
+    }
+  }
+
+  return false; // 이동 가능한 타일이 없음
+}
+
+function gameOver() {
+  alert("Game Over");
+  gameInit();
+  const container = document.querySelector(".container");
+}
 // 타일 이동(구버전)
 // const moveTile = (direction) => {
 //   const tileElements = document.querySelectorAll(".tile");
