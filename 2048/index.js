@@ -92,6 +92,7 @@ const moveTile2 = (direction) => {
   let k;
   if (direction === "up") {
     for (let i = 7; i > 3; i--) {
+      access = false;
       for (let j = i; j < i + 9; j += 4) {
         if (numArr[j] !== 0) {
           k = j;
@@ -122,6 +123,7 @@ const moveTile2 = (direction) => {
     }
   } else if (direction === "down") {
     for (let i = 11; i > 7; i--) {
+      access = false;
       for (let j = i; j >= 0; j -= 4) {
         if (numArr[j] != 0) {
           k = j;
@@ -152,6 +154,7 @@ const moveTile2 = (direction) => {
     }
   } else if (direction === "left") {
     for (let i = 13; i > 0; i -= 4) {
+      access = false;
       for (let j = i; j <= i + 2; j++) {
         if (numArr[j] != 0) {
           k = j;
@@ -185,6 +188,7 @@ const moveTile2 = (direction) => {
     }
   } else if (direction === "right") {
     for (let i = 14; i > 0; i -= 4) {
+      access = false;
       for (let j = i; j >= i - 2; j--) {
         if (numArr[j] != 0) {
           k = j;
