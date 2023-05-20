@@ -1,7 +1,3 @@
-/**
- * ! 상하좌우 이동 시 한번에 한쌍의 타일만 합쳐지는 문제
- * ! 이동할 때 합쳐질 수 있는 모든 쌍의 타일이 합쳐져야 함
- */
 const board = document.querySelector(".game-container");
 const cells = [];
 const numArr = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -28,6 +24,7 @@ function gameInit() {
   score.textContent = 0;
   randomTile();
   randomTile();
+  setBestScore();
 }
 
 // 타일 생성
@@ -68,7 +65,16 @@ function setTile() {
     }
   }
 }
+function setScore(score) {
+  const scoreNow = document.querySelector(".now .score-value");
+  scoreNow.textContent = score;
+}
 
+function setBestScore(score) {
+  const scoreBest = document.querySelector(".best .score-value");
+  let scoreBestVal = localStorage["bestScore"];
+  scoreBest.textContent = scoreBestVal;
+}
 // 게임 시작
 gameInit();
 
@@ -103,6 +109,7 @@ const moveTile2 = (direction) => {
               isMoved = true;
               access = true;
               score += numArr[k - 4];
+              setScore(score);
             } else if (numArr[k - 4] == numArr[k] && access == true) {
               access == false;
             } else if (numArr[k - 4] == 0) {
@@ -134,6 +141,7 @@ const moveTile2 = (direction) => {
               isMoved = true;
               access = true;
               score += numArr[k + 4];
+              setScore(score);
             } else if (numArr[k + 4] == numArr[k] && access == true) {
               access == false;
             } else if (numArr[k + 4] == 0) {
@@ -168,6 +176,7 @@ const moveTile2 = (direction) => {
               isMoved = true;
               access = true;
               score += numArr[k - 1];
+              setScore(score);
             } else if (numArr[k - 1] == numArr[k] && access == true) {
               access == false;
             } else if (numArr[k - 1] == 0) {
@@ -202,6 +211,7 @@ const moveTile2 = (direction) => {
               isMoved = true;
               access = true;
               score += numArr[k + 1];
+              setScore(score);
             } else if (numArr[k + 1] == numArr[k] && access == true) {
               access == false;
             } else if (numArr[k + 1] == 0) {
@@ -221,7 +231,14 @@ const moveTile2 = (direction) => {
       console.log("종료 확인");
     }
   }
+  // 베스트 점수 반영
+  localStorage.setItem("bestScore", score);
+  // 현재 점수가 베스트 점수보다 크다면 현재 점수를 베스트 점수에 반영
+  if (document.querySelector(".best .score-value").textContent < score) {
+    setBestScore(score);
+  }
 };
+
 // 타일 이동(구버전)
 // const moveTile = (direction) => {
 //   const tileElements = document.querySelectorAll(".tile");
