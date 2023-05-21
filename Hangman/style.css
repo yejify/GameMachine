@@ -110,3 +110,16 @@ p.life {
   display: inline-block;
   margin-top: 30px;
 }
+
+button.again {
+  margin-top: 20px;
+  color: #fff;
+  background-color: #d399b9;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.again:hover {
+  border: 1px solid #fff;
+}

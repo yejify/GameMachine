@@ -49,7 +49,6 @@ window.onload = function () {
     myButtons.appendChild(button);
     check();
   }
-  // 알파벳 버튼
 
   // 랜덤 단어 리스트 + 빈칸 생성
   let wordList = [
@@ -69,7 +68,6 @@ window.onload = function () {
     const resultLi = document.createElement("li");
     result.appendChild(resultLi);
   }
-  // 랜덤 단어 리스트 + 빈칸 생성
 
   let lives = 10;
   let count = 0;
@@ -98,15 +96,14 @@ window.onload = function () {
         lives -= 1;
         console.log(lives);
         comments();
-        showHM();
+        animate();
       } else {
         comments();
       }
     };
   }
-  // 버튼과 랜덤 단어 알파벳 비교
 
-  // 버튼 누를 때마다 목숨 깍아줌
+  // 버튼 눌렀을 때 틀렸을 경우 목숨 깍아줌
   function comments() {
     const life = document.querySelector(".life");
     life.innerHTML = "LIFE :" + lives;
@@ -118,7 +115,83 @@ window.onload = function () {
     }
   }
 
-  // 틀릴 경우 행맨 그려주기
+  // 캔버스에 행맨 그려주기
+  myStickMan = document.getElementById("hangMan");
+  context = myStickMan.getContext("2d");
+  context.strokeStyle = "#fff";
+  context.lineWidth = 2;
 
-  function showHM() {}
+  function animate() {
+    let drawMe = lives;
+    console.log(drawArray[drawMe]);
+    drawArray[drawMe]();
+  }
+
+  function head() {
+    context.beginPath();
+    context.arc(60, 25, 10, 0, Math.PI * 2, true);
+    context.stroke();
+  }
+
+  function draw($pathFromx, $pathFromy, $pathTox, $pathToy) {
+    context.beginPath();
+    context.moveTo($pathFromx, $pathFromy);
+    context.lineTo($pathTox, $pathToy);
+    context.stroke();
+  }
+
+  function frame1() {
+    draw(0, 147, 300, 147);
+  }
+
+  function frame2() {
+    draw(10, 0, 10, 600);
+  }
+  function frame3() {
+    draw(0, 5, 70, 5);
+  }
+
+  function frame4() {
+    draw(60, 5, 60, 15);
+  }
+
+  function torso() {
+    draw(60, 36, 60, 70);
+  }
+
+  function rightArm() {
+    draw(60, 46, 100, 50);
+  }
+
+  function lefttArm() {
+    draw(60, 46, 20, 50);
+  }
+
+  function rightLeg() {
+    draw(60, 70, 100, 100);
+  }
+
+  function leftLeg() {
+    draw(60, 70, 20, 100);
+  }
+
+  const drawArray = [
+    rightLeg,
+    leftLeg,
+    rightArm,
+    lefttArm,
+    torso,
+    head,
+    frame4,
+    frame3,
+    frame2,
+    frame1,
+  ];
+
+  // 다시하기 버튼 기능
+  const reset = document.querySelector(".again");
+  reset.addEventListener("click", function () {
+    let lives = 10;
+    let count = 0;
+  });
 };
