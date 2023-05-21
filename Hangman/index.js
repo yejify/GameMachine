@@ -188,7 +188,7 @@ window.onload = function () {
     frame1,
   ];
 
-  // 다시하기 버튼 기능
+  // 다시하기 버튼 기능 추가 필요
   const reset = document.querySelector(".again");
   reset.addEventListener("click", function () {
     let lives = 10;
