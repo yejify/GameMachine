@@ -7,7 +7,8 @@
 }
 body,
 h1,
-p {
+p,
+h2 {
   margin: 0;
 }
 body {
@@ -18,12 +19,23 @@ body {
     #14081c 100%
   );
   font-family: "NeoDunggeunmo";
+  position: relative;
+}
+body::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -180px;
+  left: 0;
+  background: url(./background.png) no-repeat 50%;
 }
 button {
   border: 0;
   padding: 0;
   background: inherit;
   font-family: "NeoDunggeunmo";
+  cursor: pointer;
 }
 .container {
   width: 640px;
@@ -31,15 +43,61 @@ button {
 }
 header {
   text-align: center;
-  font-size: 54px;
+  font-size: 64px;
   letter-spacing: 8px;
   color: white;
+}
+header .title-game {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 main {
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 14px;
+  position: relative;
+}
+main .gameOverBox {
+  visibility: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: rgb(253, 253, 253);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background-color: rgba(40, 36, 36, 0.452);
+  box-sizing: border-box;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+main .gameOverBox h2 {
+  font-size: 200px;
+}
+main .gameOverBox p {
+  font-size: 72px;
+}
+main .gameOverBox button {
+  background-color: #6211d6;
+  width: 250px;
+  height: 100px;
+  color: #fff;
+  font-size: 46px;
+  padding: 10px;
 }
 main .btn-new {
   align-self: center;
@@ -48,6 +106,7 @@ main .btn-new {
   background-color: #6211d6;
   color: white;
   font-size: 30px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .section-game .game-container {
@@ -59,69 +118,68 @@ main .btn-new {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 15px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .section-game .tile {
-  font-size: 40px;
+  font-size: 46px;
   line-height: 141px;
   background-color: #f6fff4;
-  /* margin-right: 15px;
-  margin-bottom: 15px; */
   width: 141px;
   height: 141px;
   box-sizing: border-box;
 }
-.tile-2 {
+.section-game .tile-2 {
   background-color: #eee4da;
   color: #776e65;
 }
 
-.tile-4 {
+.section-game .tile-4 {
   background-color: #ede0c8;
   color: #776e65;
 }
 
-.tile-8 {
+.section-game .tile-8 {
   background-color: #f2b179;
   color: white;
 }
 
-.tile-16 {
+.section-game .tile-16 {
   background-color: #f59563;
   color: white;
 }
 
-.tile-32 {
+.section-game .tile-32 {
   background-color: #f67c5f;
   color: white;
 }
 
-.tile-64 {
+.section-game .tile-64 {
   background-color: #f65e3b;
   color: white;
 }
 
-.tile-128 {
+.section-game .tile-128 {
   background-color: #edcf72;
   color: white;
 }
 
-.tile-256 {
+.section-game .tile-256 {
   background-color: #edcc61;
   color: white;
 }
 
-.tile-512 {
+.section-game .tile-512 {
   background-color: #edc850;
   color: white;
 }
 
-.tile-1024 {
+.section-game .tile-1024 {
   background-color: #edc53f;
   color: white;
 }
 
-.tile-2048 {
+.section-game .tile-2048 {
   background-color: #edc22e;
   color: white;
 }
@@ -139,4 +197,5 @@ main .btn-new {
   color: white;
   font-size: 24px;
   box-sizing: border-box;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }

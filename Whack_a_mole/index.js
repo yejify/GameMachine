@@ -72,12 +72,12 @@ function catchMole(e){
     //현재 두더지 이미지 삭제
     removeMole()
     //3초뒤 랜덤으로 두더지 생성
-    setTimeout(randomCreateMole(), 3000);
+    setTimeout(randomCreateMole, 300);
     }else{
     //현재 두더지 이미지 삭제
     removeMole()
     //3초뒤 랜덤으로 두더지 생성
-    setTimeout(randomCreateMole(), 3000);
+    setTimeout(randomCreateMole, 300);
     }
 }
 
