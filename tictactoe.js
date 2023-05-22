@@ -130,10 +130,25 @@ const sueResetBtn = document.getElementById('sueResetBtn');
 
 sueContinueBtn.addEventListener('click', function() {
     hideModal();
-    sueStartCells = ["", "", "", "", "", "", "", "", ""];
+
+    // 게임 셀 비우기
+    sueCells.forEach(cell => {
+        cell.textContent = "";
+    })
+
+    //새로운 게임 시작
+    sueStartGame();
 })
 
 sueResetBtn.addEventListener('click', function() {
     hideModal();
+
+    // 게임 셀 비우기
+    sueCells.forEach(cell => {
+        cell.textContent = "";
+    })
+
+    //새로운 게임 시작
+    sueStartGame();
 })
 

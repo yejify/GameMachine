@@ -53,6 +53,19 @@
     text-shadow: 7px 4px 2px goldenrod;
 }
 
+/* O, X에 hover 했을 때 게임 순서 알려주는 캡션 달기 */
+.sue-main span:hover::before {
+    content: attr(data-caption);
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    text-shadow: none;
+}
+
 /* footer */
 .sue-footer {
     font-size: 2.5rem;
