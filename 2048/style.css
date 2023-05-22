@@ -73,7 +73,7 @@ main .gameOverBox {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
-  background-color: rgba(40, 36, 36, 0.452);
+  background-color: rgba(40, 36, 36, 0.6);
   box-sizing: border-box;
   border-radius: 20px;
   -webkit-border-radius: 20px;
