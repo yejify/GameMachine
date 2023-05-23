@@ -78,6 +78,8 @@ const sueGameWin = () => {
         [0, 4, 8], [2, 4, 6] // 대각선
     ];
 
+    let sueIsTie = true;
+
     // 게임에서 이겼을 경우
     for (const condition of sueWinConditions) {
         const [a, b, c] = condition;
@@ -89,10 +91,27 @@ const sueGameWin = () => {
             return sueStartCells[a]; // 이긴 플레이어 반환
         }
     }
+
+    // 아무도 게임에서 이기지 않았을 경우
+    for (const cell of sueStartCells) {
+        if (cell === "") {
+            sueIsTie = false;
+            break;
+        }
+    }
+
+    // 만약 모든 셀이 채워져 있으면 비긴 것으로 처리
+    if (sueIsTie) {
+        return "tie";
+    }
     return ""; // 아무도 게임에서 이기지 않았을 경우
-}
+};
 
 //게임 종료 후 처리
+let suePlayerScore = 0;
+let sueComputerScore = 0;
+let sueTieScore = 0;
+
 function sueEndGame(winner) {
     sueGameEnded = true;
     sueCells.forEach(cell => {
@@ -101,13 +120,28 @@ function sueEndGame(winner) {
   
     if (winner === suePlayer) {
       sueShowModal("Congrats, You won!");
+      suePlayerScore++;
     } else if (winner === sueComputer) {
       sueShowModal("The computer wins.");
+      sueComputerScore++;
     } else {
       sueShowModal("It's a tie!");
+      sueTieScore++;
     }
+
+    updateScoreDisplay();
   }
   
+  // 게임 score 표시하기 
+  function updateScoreDisplay() {
+    const playerScoreElement = document.querySelector('.sue-player span:nth-child(2)');
+    const tieScoreElement = document.querySelector('.sue-tie span:nth-child(2)');
+    const pcScoreElement = document.querySelector('.sue-computer span:nth-child(2)');
+
+    playerScoreElement.textContent = suePlayerScore;
+    tieScoreElement.textContent = sueTieScore;
+    pcScoreElement.textContent = sueComputerScore;
+  }
 
 // 게임 결과 메시지 모달 창
 const sueModal = document.getElementById('sueModal');
@@ -128,6 +162,7 @@ function hideModal() {
 const sueContinueBtn = document.getElementById('sueContinueBtn');
 const sueResetBtn = document.getElementById('sueResetBtn');
 
+// continue 버튼 누를 때 
 sueContinueBtn.addEventListener('click', function() {
     hideModal();
 
@@ -140,8 +175,15 @@ sueContinueBtn.addEventListener('click', function() {
     sueStartGame();
 })
 
+// reset 버튼 누를 때
 sueResetBtn.addEventListener('click', function() {
     hideModal();
+
+    suePlayerScore = 0;
+    sueTieScore = 0;
+    sueComputerScore = 0;
+
+    updateScoreDisplay();
 
     // 게임 셀 비우기
     sueCells.forEach(cell => {
