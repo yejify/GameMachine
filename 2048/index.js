@@ -34,7 +34,6 @@ function gameInit() {
   randomTile();
   setBestScore();
 }
-// 게임 종료 시 현재 점수를 보여주는 함수
 // 타일 생성
 function randomTile() {
   let createTile = false;
@@ -270,6 +269,7 @@ function getAdjacentTiles(index) {
 
   return adjacentTiles;
 }
+// 타일이 움직일 수 있는지 확인
 function checkCanMoveTiles() {
   for (let i = 0; i < numArr.length; i++) {
     const currentTile = numArr[i];
@@ -293,6 +293,7 @@ function checkCanMoveTiles() {
   return false; // 이동 가능한 타일이 없음
 }
 
+// GameOver시 실행 : 현재 점수를 보여줌
 function gameOver(score) {
   const gameOverScore = document.querySelector(".gameOver-bestScore");
   gameOverScore.textContent = score;
