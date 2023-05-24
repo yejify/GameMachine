@@ -56,13 +56,14 @@ function sueStartGame() {
 // 셀 선택시 
 function cellClickHandler() {
     if (!sueRunning || sueGameEnded) return;
+    //게임이 아직 진행중인지 이미 끝났는지 체크
 
     const cell = this;
     const index = parseInt(cell.dataset.cellIndex);
 
     if (sueStartCells[index] === "") {
-        sueStartCells[index] = sueCurrentPlayer;
-        cell.textContent = sueCurrentPlayer;
+        sueStartCells[index] = suePlayer;
+        cell.textContent = suePlayer;
 
         const winner = sueGameWin();
         if (winner) {
@@ -70,10 +71,34 @@ function cellClickHandler() {
           return;
         }
 
-        sueCurrentPlayer = sueCurrentPlayer === "O" ? "X" : "O";
+        sueCurrentPlayer = sueComputer; // 게임 선수 교체
+        sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
+        setTimeout(sueMakeComputerMove, 500); // 컴퓨터 차례에 자동으로 플레이하기
     }
+}
 
-    sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
+// 컴퓨터 자동으로 플레이하게 하기
+const sueMakeComputerMove = () => {
+    if (!sueRunning || sueGameEnded) return;
+
+    const emptyCells = Array.from(sueCells).filter(cell => cell.textContent === ""); 
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const cell = emptyCells[randomIndex];
+
+    if (cell) {
+        cell.textContent = sueComputer;
+        sueStartCells[parseInt(cell.dataset.cellIndex)] = sueComputer;
+
+        const winner = sueGameWin(); // 이긴 사람 확인하기
+        if (winner) {
+            sueEndGame(winner);
+            return;
+        }
+
+        sueCurrentPlayer = suePlayer; // 플레이어 차례로 교체
+
+        sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
+    }
 }
 
 // 이긴 사람 확인하기
