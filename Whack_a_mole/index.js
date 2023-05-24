@@ -40,7 +40,6 @@ function startBtnClick(){
     //이미지에 커서 포인터 css적용
     const selectImg = document.querySelectorAll("img");
     //위 이미지 각각에 전부 class 줘야 하는데 뭘 써야 하더라..
-
 }
 
 //게임 스타트 버튼 클릭 이벤트
@@ -48,11 +47,42 @@ document.getElementById("startBtn").addEventListener("click", startBtnClick);
 
 //두더지 클릭하면 사라짐, 새로운 두더지 등장
 function catchMole(e){
+    clickCount++
     //클릭한 요소 가져오기
     const clickTaget = e.target.getAttribute("id");
-
+    
+    //클릭이 9번 이하 일 때
+    if(clickCount <= 9){
+        //li에 두더지 이미지 있는지 확인
+        if(clickTaget === 'mole'){
+        //있으면 점수 +1
+        score++
+        //현재 두더지 이미지 삭제
+        removeMole()
+        //3초뒤 랜덤으로 두더지 생성
+        setTimeout(randomCreateMole, 300);
+        }else{
+        //현재 두더지 이미지 삭제
+        removeMole()
+        //3초뒤 랜덤으로 두더지 생성
+        setTimeout(randomCreateMole, 300);
+        }
+    }
     //클릭 감지, 10번이면 결과페이지로 넘어가기
-    if(clickCount === 9){
+    if(clickCount === 10){
+
+        //li에 두더지 이미지 있는지 확인
+        if(clickTaget === 'mole'){
+        //있으면 점수 +1
+        score++
+        //현재 두더지 이미지 삭제
+        removeMole()
+        }else{
+        //현재 두더지 이미지 삭제
+        removeMole()
+        }
+
+        //결과화면
         const ground = document.querySelector('#ground');
         const gameResult = document.querySelector('#gameResult');
         ground.classList.add("a11y-hidden");
@@ -63,22 +93,6 @@ function catchMole(e){
         resultScore.textContent=score*10;
 
     };
-    clickCount++
-
-    //li에 두더지 이미지 있는지 확인
-    if(clickTaget === 'mole'){
-    //있으면 점수 +1
-    score++
-    //현재 두더지 이미지 삭제
-    removeMole()
-    //3초뒤 랜덤으로 두더지 생성
-    setTimeout(randomCreateMole, 300);
-    }else{
-    //현재 두더지 이미지 삭제
-    removeMole()
-    //3초뒤 랜덤으로 두더지 생성
-    setTimeout(randomCreateMole, 300);
-    }
 }
 
 function reloadGame(){

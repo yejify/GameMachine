@@ -77,8 +77,19 @@ img{
 
 #mole{
     position: absolute;
-    bottom: 0;
+    animation-duration: .3s;
+    animation-name: slidein;
     left: 0;
+}
+
+@keyframes slidein {
+    from {
+        bottom: -120px;
+    }
+  
+    to {
+        bottom: 0;
+    }
 }
 
 #startBtn{
@@ -102,6 +113,8 @@ img{
     height: 69px;
     background-image: url(../assets/btnGreen.PNG);
     font-size: 40px;
+    text-decoration: none;
+    color: black;
 }
 
 #gameResult{
