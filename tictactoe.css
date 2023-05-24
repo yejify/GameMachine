@@ -9,6 +9,12 @@
     background-color: #1370AC;
 }
 
+.sue-title,
+.sue-title-p {
+    margin: 0;
+    padding: 0;
+}
+
 /* 홈 화면 */
 /* div 박스 */
 .sue-game-tictactoe {
@@ -32,6 +38,17 @@
 .sue-title {
     font-size: 4rem;
     text-shadow: 7px 4px 2px goldenrod;
+}
+
+.sue-title-p {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.sue-turn p {
+    margin: 0;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 /* main */
@@ -89,6 +106,11 @@
 }
 
 /* 메인 게임 화면 */
+.sue-turn {
+    display: block;
+    font-size: 1.2rem;
+}
+
 .sue-game-board {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);

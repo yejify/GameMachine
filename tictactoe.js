@@ -37,6 +37,8 @@ let sueCurrentPlayer = "O"; // O를 선택하면 항상 게임 먼저 시작하�
 let sueRunning = false;
 let sueGameEnded = false;
 
+const sueTurn = document.querySelector('.sue-turn p');
+
 function sueStartGame() {
     sueStartCells = ["", "", "", "", "", "", "", "", ""];
     sueCurrentPlayer = "O";
@@ -47,6 +49,8 @@ function sueStartGame() {
     sueCells.forEach(cell => {
         cell.addEventListener('click', cellClickHandler);
     });
+
+    sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
 }
 
 // 셀 선택시 
@@ -68,6 +72,8 @@ function cellClickHandler() {
 
         sueCurrentPlayer = sueCurrentPlayer === "O" ? "X" : "O";
     }
+
+    sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
 }
 
 // 이긴 사람 확인하기
