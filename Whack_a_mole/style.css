@@ -60,13 +60,22 @@ button{
     margin: auto;
 }
 
+.view{
+    float: initial;
+    position: absolute;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    left: 10px;
+    top: 10px;
+}
+
 .hole{
+    position: relative;
     width: auto;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     text-align: center;
-    position: relative;
     height: 160px;
 }
 
@@ -79,7 +88,8 @@ img{
     position: absolute;
     animation-duration: .3s;
     animation-name: slidein;
-    left: 0;
+    left: -26px;
+    bottom: -50px;
 }
 
 @keyframes slidein {
@@ -88,7 +98,7 @@ img{
     }
   
     to {
-        bottom: 0;
+        bottom: -50px;
     }
 }
 

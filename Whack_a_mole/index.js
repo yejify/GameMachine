@@ -13,7 +13,7 @@
 
 //랜덤으로 두더지 나오는 함수
 function randomCreateMole(){
-    const liList = document.querySelectorAll("li");
+    const liList = document.querySelectorAll("div");
     const img = document.createElement("img");
     const mole = liList.item(Math.floor(Math.random() * 9)).appendChild(img)
     mole.setAttribute("id","mole");
