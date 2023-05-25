@@ -1,0 +1,68 @@
+@font-face {
+            font-family: 'NeoDunggeunmo';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            font-family: 'NeoDunggeunmo';
+        }
+
+        div {
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            color: #fff;
+        }
+
+        #canvas {
+            background-color: #fff;
+            border: 1px solid #000;
+        }
+
+        [class*="btn-"] {
+            margin: 6px;
+            background-color: #1370AC;
+            color: #FBB041;
+            width: 100px;
+            height: 30px;
+            border: none;
+            border-radius: 40px;
+            font-family: 'NeoDunggeunmo';
+            font-size: 17px;
+        }
+
+        [class*="btn-"]:hover {
+            background-color: #004571;
+            border: 2px solid #FBB041;
+            cursor: pointer;
+        }
+
+        .btnstart {
+            margin-top: 10px;
+            background-color: #FBB041;
+            color: #1370AC;
+            width: 200px;
+            height: 30px;
+            border: none;
+            border-radius: 40px;
+            font-family: 'NeoDunggeunmo';
+            font-size: 17px;
+        }
+
+        .btnstart:hover {
+            background-color: #EE1D24;
+            cursor: pointer;
+        }
+
+        .btncontainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
