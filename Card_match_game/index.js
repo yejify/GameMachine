@@ -92,7 +92,7 @@ class CheckPair {
 }
 
 function shuffle(array) {
-  // return [...array, ...array].sort(() => Math.random() - 0.5);
+  return [...array, ...array].sort(() => Math.random() - 0.5);
   return [...array, ...array].sort();
 }
 
