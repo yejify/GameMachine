@@ -44,15 +44,20 @@ function sueStartGame() {
     sueCurrentPlayer = "O";
     sueRunning = true;
     sueGameEnded = false;
-    console.log("Current player: " + sueCurrentPlayer);
 
     sueCells.forEach(cell => {
         cell.addEventListener('click', cellClickHandler);
     });
 
-    sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
-
-    // 누가 O이고, 누가 X인지 점수 위에 표기
+    // 누구 차례인지 표시
+    if (sueCurrentPlayer === suePlayer){
+        sueTurn.innerHTML = 'Player\'s turn';
+    } else if (sueCurrentPlayer === sueComputer) {
+        sueTurn.innerHTML = 'Computer\'s turn';
+        setTimeout(sueMakeComputerMove, 1000);
+    }
+    
+    // 누가 O이고, 누가 X인지 점수 위에 표시
     if (!isLabelsSet) {
         playerLabelElement.innerHTML = `${playerLabelElement.innerHTML}(${suePlayer})`;
         computerLabelElement.innerHTML = `${computerLabelElement.innerHTML}(${sueComputer})`;
@@ -83,8 +88,15 @@ function cellClickHandler() {
         }
 
         sueCurrentPlayer = sueComputer; // 게임 선수 교체
-        sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
-        setTimeout(sueMakeComputerMove, 300); // 컴퓨터 차례에 자동으로 플레이하기
+
+        // 누구 차례인지 표시
+        if (sueCurrentPlayer === suePlayer){
+            sueTurn.innerHTML = 'Player\'s turn';
+        } else {
+            sueTurn.innerHTML = 'Computer\'s turn';
+        }
+        
+        setTimeout(sueMakeComputerMove, 600); // 컴퓨터 차례에 자동으로 플레이하기
     }
 }
 
@@ -108,7 +120,12 @@ const sueMakeComputerMove = () => {
 
         sueCurrentPlayer = suePlayer; // 플레이어 차례로 교체
 
-        sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
+        // 누구 차례인지 표시
+          if (sueCurrentPlayer === suePlayer){
+            sueTurn.innerHTML = 'Player\'s turn';
+        } else {
+            sueTurn.innerHTML = 'Computer\'s turn';
+        }
     }
 }
 
