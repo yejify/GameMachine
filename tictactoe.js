@@ -225,3 +225,10 @@ sueResetBtn.addEventListener('click', function() {
     sueStartGame();
 })
 
+// 이전으로 돌아가서 다시 O, X 중 선택하기
+const sueGoBackSideBtn = document.getElementsByClassName('.sue-go-back');
+
+sueGoBackSideBtn.addEventListener('click', function() {
+    sueHomeScreen.style.display = 'block';
+    sueGameScreen.style.display = 'none';
+});

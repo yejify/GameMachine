@@ -5,18 +5,19 @@
     font-style: normal;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .sue-body {
     background-color: #1370AC;
 }
 
-.sue-title,
-.sue-title-p {
-    margin: 0;
-    padding: 0;
-}
-
 /* 홈 화면 */
-/* div 박스 */
+
+/** div 박스 */
 .sue-game-tictactoe {
     background-color: black;
     color: #fff;
@@ -34,7 +35,7 @@
     text-align: center;
 }
 
-/* header */
+/** header */
 .sue-title {
     font-size: 4rem;
     text-shadow: 7px 4px 2px goldenrod;
@@ -51,7 +52,7 @@
     padding-bottom: 20px;
 }
 
-/* main */
+/** main */
 
 .sue-main {
     display: flex;
@@ -70,7 +71,7 @@
     text-shadow: 7px 4px 2px goldenrod;
 }
 
-/* O, X에 hover 했을 때 게임 순서 알려주는 캡션 달기 */
+/** O, X에 hover 했을 때 게임 순서 알려주는 캡션 달기 */
 .sue-main span:hover::before {
     content: attr(data-caption);
     position: absolute;
@@ -83,7 +84,7 @@
     text-shadow: none;
 }
 
-/* footer */
+/** footer */
 .sue-footer {
     font-size: 2.5rem;
 }
@@ -105,12 +106,54 @@
     */
 }
 
+/* /홈 화면 */
+
 /* 메인 게임 화면 */
+
+/** 이전 화면으로 돌아가기 */
+.sue-goback-btn {
+    position: relative;
+    font-size: 1.7rem;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+}
+
+.sue-goback-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#sue-goback-caption {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    position: absolute;
+    top: 30px;
+    left: 40px;
+
+    display: inline;
+    padding: 5px;
+    border: 1px solid rgba(218, 165, 32, 0.7);
+    background-color: rgba(218, 165, 32, 0.7);
+    color: black;
+}
+
+.sue-goback-btn:hover+#sue-goback-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/** 게임 차례 표시 */
+
 .sue-turn {
     display: block;
     font-size: 1.2rem;
 }
 
+/** 게임 셀 보드 */
 .sue-game-board {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
@@ -130,6 +173,7 @@
     line-height: 1;
 }
 
+/** 점수 */
 .sue-score {
     display: flex;
     justify-content: space-evenly;
@@ -143,7 +187,7 @@
     text-align: center;
 }
 
-/* 게임 결과 모달창 */
+/** 게임 결과 모달창 */
 .sue-modal {
     display: none;
     position: fixed;
@@ -172,3 +216,5 @@
 .sue-modal-buttons button {
     margin-right: 10px;
 }
+
+/* /메인 게임 화면 */
