@@ -6,180 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
         <h1 class="card-game-header">card Match</h1>
     </header>
-
+    <div class="modal-container">
+        <div class="modal-content">
+            <h2>정말 포기하시겠습니까?</h2>
+            <div class="modal-btn">
+                <button class="modal-yes">yes</button>
+                <button class="modal-no">No</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-winer-container">
+        <div class="modal-content">
+            <span id="modalClose" class="modal-close">&times;</span>
+            <h2>모든 카드를 찾아내는데 성공하셨습니다!!!!!</h2>
+            <h3></h3>
+            <div class="modal-btn">
+                <button class="modal-again">더 좋은 기록을 세워보시려면 click!</button>
+            </div>
+        </div>
+    </div>
     <div class="container">
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
-        <div class="card-item">
-            <div class="card front">
-                <img src='../assets/card1.png' alt="">
-            </div>
-            <div class="card back">
-                <img src="../assets/cat.png" alt="">
-            </div>
-        </div>
     </div>
     <div class="record">
         <button class="btn-start">start</button>
         <p class="timer">00:00:00</p>
     </div>
+    <script src="index.js"></script>
 </body>
-
 </html>
