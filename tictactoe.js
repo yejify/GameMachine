@@ -51,7 +51,18 @@ function sueStartGame() {
     });
 
     sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
+
+    // 누가 O이고, 누가 X인지 점수 위에 표기
+    if (!isLabelsSet) {
+        playerLabelElement.innerHTML = `${playerLabelElement.innerHTML}(${suePlayer})`;
+        computerLabelElement.innerHTML = `${computerLabelElement.innerHTML}(${sueComputer})`;
+        isLabelsSet = true;
+      }
 }
+
+const playerLabelElement = document.querySelector('.sue-player span:first-child');
+const computerLabelElement = document.querySelector('.sue-computer span:first-child');
+let isLabelsSet = false;
 
 // 셀 선택시 
 function cellClickHandler() {
@@ -73,7 +84,7 @@ function cellClickHandler() {
 
         sueCurrentPlayer = sueComputer; // 게임 선수 교체
         sueTurn.innerHTML = `${sueCurrentPlayer}'s turn`;
-        setTimeout(sueMakeComputerMove, 500); // 컴퓨터 차례에 자동으로 플레이하기
+        setTimeout(sueMakeComputerMove, 300); // 컴퓨터 차례에 자동으로 플레이하기
     }
 }
 
