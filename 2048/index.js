@@ -21,6 +21,7 @@ const restartBtn = document.querySelector(".gameOverBox button");
 restartBtn.addEventListener("click", () => {
   gameOverBox.style.visibility = "hidden";
   gameInit();
+  score = 0;
 });
 // 게임 초기화
 function gameInit() {
@@ -239,6 +240,7 @@ const moveTile = (direction) => {
       checkCanMoveTiles() === false ? gameOver(score) : null;
     }
   }
+  console.log(score);
   // 현재 점수 > 베스트 점수, 현재 점수를 베스트 점수에 반영
   if (document.querySelector(".best .score-value").textContent < score) {
     localStorage.setItem("bestScore", score);
