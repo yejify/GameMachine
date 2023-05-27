@@ -12,16 +12,16 @@
 }
 
 .sue-body {
-    background-color: #1370AC;
+    height: 100vh;
+    background: linear-gradient(180deg, #E38845 25.52%, #F0E36F 100%);
 }
 
 /* 홈 화면 */
 
 /** div 박스 */
 .sue-game-tictactoe {
-    background-color: black;
-    color: #fff;
-    height: 80vh;
+    color: black;
+    height: 100vh;
     width: 613px;
     position: absolute;
     left: 50%;
@@ -78,7 +78,7 @@
     top: 65%;
     left: 50%;
     transform: translateX(-50%);
-    color: #fff;
+    color: black;
     font-size: 1.2rem;
     white-space: nowrap;
     text-shadow: none;
@@ -111,18 +111,21 @@
 /* 메인 게임 화면 */
 
 /** 이전 화면으로 돌아가기 */
+.sue-goback-container {
+    position: absolute;
+    left: 70px;
+    top: 20px;
+}
+
 .sue-goback-btn {
-    position: relative;
     font-size: 1.7rem;
-    top: 10px;
-    left: 10px;
     background: none;
     border: none;
 }
 
 .sue-goback-btn a {
     text-decoration: none;
-    color: #fff;
+    color: black;
 }
 
 #sue-goback-caption {
@@ -132,7 +135,7 @@
 
     position: absolute;
     top: 30px;
-    left: 40px;
+    left: 20px;
 
     display: inline;
     padding: 5px;
@@ -157,7 +160,7 @@
 .sue-game-board {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    border: 2px solid #fff;
+    border: 2px solid black;
 
     width: 80%;
     height: 60%;
@@ -168,7 +171,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #fff;
+    border: 2px solid black;
     font-size: 7rem;
     line-height: 1;
 }
@@ -223,3 +226,30 @@
 }
 
 /* /메인 게임 화면 */
+
+/* 배경 디자인 */
+.seagull {
+    position: absolute;
+}
+
+.seagull:first-child {
+    top: 20%;
+    left: 5%;
+    width: 150px;
+}
+
+.seagull:nth-child(2) {
+    top: 30%;
+    left: 10%;
+}
+
+.seagull:nth-child(3) {
+    top: 35%;
+    right: 10%;
+}
+
+.sun {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
