@@ -1,32 +1,58 @@
-body {
-    background-color: rgb(24, 23, 23);
-}
-.main {
-    position: relative;
-    box-shadow: 0 0 10px red;
-}
-.main img {
-    width: 92%;
-    margin: 0 auto;
-    display: block;
-}
-.game-page:nth-child(1) {
-    position: absolute;
-    display: flex;
-    top: 15%;
-    left: 23%;
-}
-.game-page:nth-child(2) {
-    position: absolute;
-    display: flex;
-    top: 35%;
-    left: 15%;
+@font-face {
+    font-family: 'NeoDunggeunmo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.page {
-    background-color: white;
-    margin-left: 30px;
-    width: 15vw;
-    height: 8vw;
-    border-radius: 20px;
+button {
+    background: inherit;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    overflow: visible;
+    cursor: pointer
+}
+
+body {
+    background-color: black;
+    background-image: url(./assets/gameMachine.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'NeoDunggeunmo';
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    background-image: url(./assets/meteor.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 250px;
+    height: 250px;
+}
+
+.main {}
+
+.title {
+    color: white;
+    text-align: center;
+    font-size: 80px;
+    text-shadow: 4px 5px 6px rgb(106, 39, 39);
+}
+
+.into-game {
+    /* position: absolute; */
+    color: white;
+    margin: auto;
+    display: block;
+    text-align: center;
+    margin-top: 260px;
+    font-family: 'NeoDunggeunmo';
+    font-size: 120px;
+    /* top: 50%;
+    left: 50%; */
 }

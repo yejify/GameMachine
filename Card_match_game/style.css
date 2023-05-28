@@ -17,6 +17,13 @@ body {
     background-color: #205B82;
     margin: 0;
     padding: 0;
+
+    background-color: black;
+    background-image: url(../assets/cardMatchBg.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'NeoDunggeunmo';
 }
 
 button {

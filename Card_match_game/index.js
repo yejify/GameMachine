@@ -92,8 +92,7 @@ class CheckPair {
 }
 
 function shuffle(array) {
-  // return [...array, ...array].sort(() => Math.random() - 0.5);
-  return [...array, ...array].sort();
+  return [...array, ...array].sort(() => Math.random() - 0.5);
 }
 
 function createCardItem() {
@@ -152,7 +151,6 @@ function reverse(front, back, matcher, time) {
         matcher.setCurrentCard(back[i].dataset.item, i);
       } else  {
         if (matcher.checkPair(back[i].dataset.item) === 1) {
-          console.log("correct");
           matcher.setMatchedPairs();
           if (matcher.isGameCompleted()) {
             time.stop();
@@ -164,9 +162,7 @@ function reverse(front, back, matcher, time) {
           setTimeout(() => {
             flipCardBackward(front[i], back[i]);
             flipCardBackward(front[matcher.currentCardId], back[matcher.currentCardId]);
-
             matcher.clearCurrentCard();
-
             isClickable = true; // 클릭 가능한 상태로 변경
           }, 1500);
         }
@@ -174,6 +170,50 @@ function reverse(front, back, matcher, time) {
     });
   }
 }
+
+function saveName() {
+  let name = prompt('이름을 입력하세요.');
+  let savedName = localStorage.getItem(name);
+
+  if (savedName) { // 저장된 레코드가 있다.
+    window.onload = function() {
+      let savedName = localStorage.getItem(name);
+      if (savedName) {
+        alert('저장된 이름: ' + savedName);
+      }
+    };
+  }
+  else if (name) {
+    localStorage.setItem(name, '');
+  }
+  
+}
+
+function setRecord(record) {
+  let savedName = localStorage.key(0);
+
+  if (!savedName)
+    return 0;
+  let data = JSON.stringify(localStorage.getItem(savedName));
+  localStorage.setItem(savedName, JSON.parse(data, record));
+  console.log(data);
+}
+
+function getRecord(name) {
+
+}
+
+/**
+ {
+  'savedName' : [
+    '00:00:11'
+    '00:00:11'
+    '00:00:11'
+    '00:00:11'
+  ]
+ }
+ */
+
 
 function startGame(checkPair, time) {
   const front = document.querySelectorAll(".card-item .front");
@@ -217,6 +257,9 @@ modalClose.addEventListener('click', () => {
   winerModal.style.display = "none";
 });
 
+
+
 (function App() {
   createCardItem();
+  saveName();
 })();
