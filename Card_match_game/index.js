@@ -93,6 +93,10 @@ class CheckPair {
 
 function shuffle(array) {
   return [...array, ...array].sort(() => Math.random() - 0.5);
+<<<<<<< HEAD
+=======
+  return [...array, ...array].sort();
+>>>>>>> 305a55604c2ec07e48daecacaee07657d0ba3f82
 }
 
 function createCardItem() {
