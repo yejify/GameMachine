@@ -5,6 +5,13 @@
     font-style: normal;
 }
 
+ul {
+    list-style: none;
+    margin: 0;
+    padding: none;
+    border: 0;
+}
+
 img {
     vertical-align: top;
     margin: 0;
@@ -96,7 +103,7 @@ h1 {
 
 .card-game-header {
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
     color: #FBB041;
     text-shadow: 3px 4px 5px red;
     padding: 20px;
@@ -169,11 +176,27 @@ h1 {
     font-size: 50px;
 }
 
+
+.ranking {
+    color:  rgb(169, 168, 168);
+    font-size: 30px;
+    padding: 20px;
+}
+
+.rank-header {
+    color: rgb(214, 199, 199);
+}
+
+.ranker {
+    padding: 5px;
+}
+
 @media (max-width: 1592px) {
     .record {
         position: inherit;
         top: 10%;
         right: 15%;
+        margin-left: 40px;
     }
 
     .container {
