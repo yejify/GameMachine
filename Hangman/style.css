@@ -111,7 +111,7 @@ p.life {
   margin-top: 30px;
 }
 
-button.again {
+button.resetButton {
   margin-top: 20px;
   color: #fff;
   background-color: #d399b9;
@@ -120,6 +120,6 @@ button.again {
   cursor: pointer;
 }
 
-button.again:hover {
+button.resetButton:hover {
   border: 1px solid #fff;
 }

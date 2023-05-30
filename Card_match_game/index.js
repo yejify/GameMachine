@@ -76,7 +76,7 @@ class CheckPair {
   }
 
   isGameCompleted() {
-    console.log(this.matchedPairs, images.length)
+    console.log(this.matchedPairs, images.length);
     return this.matchedPairs === images.length;
   }
 
@@ -92,8 +92,8 @@ class CheckPair {
 }
 
 function shuffle(array) {
+  // return [...array, ...array].sort();
   return [...array, ...array].sort(() => Math.random() - 0.5);
-  return [...array, ...array].sort();
 }
 
 function createCardItem() {
@@ -120,7 +120,6 @@ function createCardItem() {
   container.append(...cardItemArr);
 }
 
-
 function flipCardForward(front, back) {
   front.style.transform = "rotateY(180deg)";
   back.style.transform = "rotateY(0deg)";
@@ -132,12 +131,10 @@ function flipCardBackward(front, back) {
 }
 
 function reverseAll(front, back) {
-  for (let i = 0; i < front.length; i++)
-    flipCardForward(front[i], back[i]);
+  for (let i = 0; i < front.length; i++) flipCardForward(front[i], back[i]);
 
   setTimeout(() => {
-    for (let i = 0; i < front.length; i++)
-      flipCardBackward(front[i], back[i]);
+    for (let i = 0; i < front.length; i++) flipCardBackward(front[i], back[i]);
   }, 2000);
 }
 
@@ -147,32 +144,74 @@ function reverse(front, back, matcher, time) {
   for (let i = 0; i < front.length; i++) {
     front[i].addEventListener("click", () => {
       if (!isClickable) return; // 클릭 불가능한 상태라면 함수 종료
-        flipCardForward(front[i], back[i]);
+      flipCardForward(front[i], back[i]);
       if (matcher.currentCard === null) {
         matcher.setCurrentCard(back[i].dataset.item, i);
-      } else  {
+      } else {
         if (matcher.checkPair(back[i].dataset.item) === 1) {
-          console.log("correct");
           matcher.setMatchedPairs();
           if (matcher.isGameCompleted()) {
             time.stop();
             winerModal.style.display = "flex";
             winerTime.textContent = timeValue.textContent;
+            saveRecord(
+              prompt("기록 저장을 위해 이름을 입력하세요."),
+              timeValue.textContent
+            );
           }
         } else {
           isClickable = false; // 클릭 불가능한 상태로 변경
           setTimeout(() => {
             flipCardBackward(front[i], back[i]);
-            flipCardBackward(front[matcher.currentCardId], back[matcher.currentCardId]);
-
+            flipCardBackward(
+              front[matcher.currentCardId],
+              back[matcher.currentCardId]
+            );
             matcher.clearCurrentCard();
-
             isClickable = true; // 클릭 가능한 상태로 변경
           }, 1500);
         }
       }
     });
   }
+}
+
+function saveRecord(username, time) {
+  const existingRecords = JSON.parse(localStorage.getItem("gameRecords")) || {
+    records: [],
+  };
+  const newRecord = {
+    username: username,
+    time: time,
+  };
+
+  existingRecords.records.push(newRecord);
+  localStorage.setItem("gameRecords", JSON.stringify(existingRecords));
+}
+
+function getRecords() {
+  const existingRecords = JSON.parse(localStorage.getItem("gameRecords")) || {
+    records: [],
+  };
+  return existingRecords.records;
+}
+
+function readRanker() {
+  let ranker = getRecords();
+  if (!ranker) return;
+
+  const rankerItem = document.querySelector(".ranking");
+  const dommy = document.createDocumentFragment("ul");
+  let rank = ranker.sort(function (a, b) {
+    return a.time - b.time;
+  });
+  rank.map((record) => {
+    const recordItem = document.createElement("li");
+    recordItem.classList.add("ranker");
+    recordItem.textContent = `${record.username}: ${record.time}`;
+    dommy.append(recordItem);
+  });
+  rankerItem.append(dommy);
 }
 
 function startGame(checkPair, time) {
@@ -207,16 +246,17 @@ modalNo.addEventListener("click", () => {
   modalContainer.style.display = "none";
 });
 
-winerAgain.addEventListener('click', () => {
+winerAgain.addEventListener("click", () => {
   winerModal.style.display = "none";
   createCardItem();
   btnStart.click();
 });
 
-modalClose.addEventListener('click', () => {
+modalClose.addEventListener("click", () => {
   winerModal.style.display = "none";
 });
 
 (function App() {
   createCardItem();
+  readRanker();
 })();
