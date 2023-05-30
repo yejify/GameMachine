@@ -16,9 +16,13 @@
     <header class="title">
       <p class="title-p">TIC TAC TOE</p>
     </header>
-    <main class="main">
-      <span class="main-o" data-caption="You will start first">O</span>
-      <span class="main-x" data-caption="The computer starts first">X</span>
+    <main class="side">
+      <span class="side-sun" data-caption="You will start first">
+        <img src="sun.svg" alt="sun">
+      </span>
+      <span class="side-seagull" data-caption="The computer starts first">
+        <img src="seagull.svg" alt="seagull">
+      </span>
     </main>
     <footer class="footer blink">Choose a side</footer>
   </div>
@@ -49,7 +53,7 @@
     <footer>
       <div class="score-container">
         <div class="score-box player">
-          <span>Player</span>
+          <span class="label-img">Player</span>
           <span>0</span>
         </div>
         <div class="score-box tie">
@@ -57,7 +61,7 @@
           <span>0</span>
         </div>
         <div class="score-box computer">
-          <span>Computer</span>
+          <span class="label-img">Computer</span>
           <span>0</span>
         </div>
       </div>

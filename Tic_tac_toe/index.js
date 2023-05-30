@@ -1,17 +1,20 @@
-// O, X 선택
+// 역할(해, 갈매기) 중 선택 
 let Player = '';
 let Computer = '';
 
+const sideSun = '<img src="sun.svg" alt="sun">';
+const sideSeagull = '<img src="seagull.svg" alt="seagull">';
+
 window.onload = function () {
-    let oButton = document.querySelector('.main-o');
-    let xButton = document.querySelector('.main-x');
+    let oButton = document.querySelector('.side-sun');
+    let xButton = document.querySelector('.side-seagull');
 
     let HomeScreen = document.querySelector('#home-screen');
     let GameScreen = document.querySelector('#game-screen');
 
     oButton.addEventListener('click', function() {
-        Player = 'O';
-        Computer = 'X';
+        Player = sideSun;
+        Computer = sideSeagull;
 
         HomeScreen.style.display = 'none';
         GameScreen.style.display = 'block';
@@ -20,8 +23,8 @@ window.onload = function () {
     })
 
     xButton.addEventListener('click', function() {
-        Player = 'X';
-        Computer = 'O';
+        Player = sideSeagull;
+        Computer = sideSun;
 
         HomeScreen.style.display = 'none';
         GameScreen.style.display = 'block';
@@ -33,7 +36,7 @@ window.onload = function () {
 // 게임 화면
 const Cells = document.querySelectorAll('.cell');
 let StartCells = ["", "", "", "", "", "", "", "", ""];
-let CurrentPlayer = "O"; // O를 선택하면 항상 게임 먼저 시작하기 
+let CurrentPlayer = sideSun; // 해를 선택하면 항상 게임 먼저 시작하기 
 let Running = false;
 let GameEnded = false;
 
@@ -41,7 +44,7 @@ const Turn = document.querySelector('.turn p');
 
 function StartGame() {
     StartCells = ["", "", "", "", "", "", "", "", ""];
-    CurrentPlayer = "O";
+    CurrentPlayer = sideSun;
     Running = true;
     GameEnded = false;
 
@@ -62,7 +65,7 @@ function StartGame() {
         setTimeout(MakeComputerMove, 1000);
     }
     
-    // 누가 O이고, 누가 X인지 점수 위에 표시
+    // 누가 해고, 누가 갈매기인지 점수 위에 표시
     if (!isLabelsSet) {
         playerLabelElement.innerHTML = `${playerLabelElement.innerHTML}(${Player})`;
         computerLabelElement.innerHTML = `${computerLabelElement.innerHTML}(${Computer})`;
@@ -84,7 +87,7 @@ function cellClickHandler() {
 
     if (StartCells[index] === "") {
         StartCells[index] = Player;
-        cell.textContent = Player;
+        cell.innerHTML = Player;
 
         const winner = GameWin();
         if (winner) {
@@ -123,12 +126,12 @@ function disableCellClicks() {
 const MakeComputerMove = () => {
     if (!Running || GameEnded) return;
 
-    const emptyCells = Array.from(Cells).filter(cell => cell.textContent === ""); 
+    const emptyCells = Array.from(Cells).filter(cell => cell.innerHTML === ""); 
     const randomIndex = Math.floor(Math.random() * emptyCells.length);
     const cell = emptyCells[randomIndex];
 
     if (cell) {
-        cell.textContent = Computer;
+        cell.innerHTML = Computer;
         StartCells[parseInt(cell.dataset.cellIndex)] = Computer;
 
         const winner = GameWin(); // 이긴 사람 확인하기
@@ -273,7 +276,7 @@ ResetBtn.addEventListener('click', function() {
 })
 
 // 이전으로 돌아가서 다시 O, X 중 선택하기
-const GoBackSideBtn = document.getElementsByClassName('.go-back');
+const GoBackSideBtn = document.querySelector('.go-back');
 
 GoBackSideBtn.addEventListener('click', function() {
     HomeScreen.style.display = 'block';

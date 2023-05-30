@@ -51,9 +51,9 @@
     padding-bottom: 20px;
 }
 
-/** main */
+/** side - 역할 선택하기 */
 
-.main {
+.side {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,17 +61,17 @@
     height: 60%;
 }
 
-.main span {
+.side span {
     font-size: 7rem;
     cursor: pointer;
 }
 
-.main span:hover {
+.side span:hover {
     text-shadow: 7px 4px 2px goldenrod;
 }
 
 /** O, X에 hover 했을 때 게임 순서 알려주는 캡션 달기 */
-.main span:hover::before {
+.side span:hover::before {
     content: attr(data-caption);
     position: absolute;
     top: 65%;
@@ -192,6 +192,11 @@
 
 .score-box span:first-child {
     margin-bottom: 5px;
+}
+
+.label-img img {
+    width: 20px;
+    height: 20px;
 }
 
 /** 게임 결과 모달창 */
