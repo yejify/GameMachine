@@ -86,7 +86,6 @@ body {
 .buttons button {
   width: 40px;
   height: 40px;
-  /* background-color: #041638; */
   background-color: #8066e8;
   color: #fff;
   font-size: 15px;
@@ -104,7 +103,8 @@ body {
 }
 
 .buttons button.active {
-  background-color: #202346;
+  background-color: #42337f;
+
   color: #555472;
   pointer-events: none;
 }
@@ -119,7 +119,6 @@ p.life {
 button.resetButton {
   margin-top: 20px;
   color: #fff;
-  /* background-color: #c0b4f0; */
   background-color: #d56fa7;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -131,7 +130,6 @@ button.resetButton {
 }
 
 button.resetButton:hover {
-  /* border: 3px solid white; */
   background-color: #b1397b;
 }
 
@@ -158,7 +156,6 @@ button.resetButton:hover {
   margin-bottom: 30px;
   font-size: 55px;
   color: #b1397b;
-  /* color: #695aa1; */
 }
 
 .home {
