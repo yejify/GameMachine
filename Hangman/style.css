@@ -32,7 +32,11 @@ button {
 }
 
 body {
-  background-color: #2e294e;
+  /* background-color: #2e294e; */
+  background-image: url("../assets/hangManBg.png");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: "NeoDunggeunmo";
 }
 
@@ -42,7 +46,7 @@ body {
 }
 
 .container h1 {
-  color: #d399b9;
+  color: #fff;
   font-size: 50px;
   margin-top: 30px;
 }
@@ -77,12 +81,13 @@ body {
 .buttons {
   max-width: 800px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .buttons button {
   width: 40px;
   height: 40px;
-  background-color: #041638;
+  /* background-color: #041638; */
+  background-color: #8066e8;
   color: #fff;
   font-size: 15px;
   margin-top: 10px;
@@ -95,7 +100,7 @@ body {
 }
 
 .buttons button:hover {
-  border: 1px solid #fff;
+  border: 2px solid #fff;
 }
 
 .buttons button.active {
@@ -108,7 +113,7 @@ p.life {
   color: #a52a2a;
   font-size: 30px;
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 button.resetButton {
@@ -151,4 +156,21 @@ button.resetButton:hover {
   margin-bottom: 30px;
   font-size: 50px;
   color: white;
+}
+
+.home {
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid white;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 7px 12px;
+  margin-top: 30px;
+}
+
+.home:hover {
+  border: 2px solid #fff;
+  background-color: #9c69d5;
 }
