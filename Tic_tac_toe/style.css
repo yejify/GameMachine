@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.sue-body {
+.body {
     height: 100vh;
     background: linear-gradient(180deg, #E38845 25.52%, #F0E36F 100%);
 }
@@ -19,7 +19,7 @@
 /* 홈 화면 */
 
 /** div 박스 */
-.sue-game-tictactoe {
+.game-tictactoe {
     color: black;
     height: 100vh;
     width: 613px;
@@ -30,23 +30,22 @@
     font-family: 'NeoDunggeunmo';
 }
 
-.sue-title,
-.sue-footer {
+.title,
+.footer {
     text-align: center;
 }
 
 /** header */
-.sue-title {
+.title {
     font-size: 4rem;
-    text-shadow: 7px 4px 2px goldenrod;
 }
 
-.sue-title-p {
+.title-p {
     padding-top: 60px;
     padding-bottom: 30px;
 }
 
-.sue-turn p {
+.turn p {
     margin: 0;
     text-align: center;
     padding-bottom: 20px;
@@ -54,7 +53,7 @@
 
 /** main */
 
-.sue-main {
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,17 +61,17 @@
     height: 60%;
 }
 
-.sue-main span {
+.main span {
     font-size: 7rem;
     cursor: pointer;
 }
 
-.sue-main span:hover {
+.main span:hover {
     text-shadow: 7px 4px 2px goldenrod;
 }
 
 /** O, X에 hover 했을 때 게임 순서 알려주는 캡션 달기 */
-.sue-main span:hover::before {
+.main span:hover::before {
     content: attr(data-caption);
     position: absolute;
     top: 65%;
@@ -85,7 +84,7 @@
 }
 
 /** footer */
-.sue-footer {
+.footer {
     font-size: 2.5rem;
 }
 
@@ -111,24 +110,24 @@
 /* 메인 게임 화면 */
 
 /** 이전 화면으로 돌아가기 */
-.sue-goback-container {
+.goback-container {
     position: absolute;
     left: 70px;
     top: 20px;
 }
 
-.sue-goback-btn {
+.goback-btn {
     font-size: 1.7rem;
     background: none;
     border: none;
 }
 
-.sue-goback-btn a {
+.goback-btn a {
     text-decoration: none;
     color: black;
 }
 
-#sue-goback-caption {
+#goback-caption {
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -144,20 +143,20 @@
     color: black;
 }
 
-.sue-goback-btn:hover+#sue-goback-caption {
+.goback-btn:hover+#goback-caption {
     opacity: 1;
     transform: translateY(0);
 }
 
 /** 게임 차례 표시 */
 
-.sue-turn {
+.turn {
     display: block;
     font-size: 1.2rem;
 }
 
 /** 게임 셀 보드 */
-.sue-game-board {
+.game-board {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     border: 2px solid black;
@@ -167,7 +166,7 @@
     margin: 0 auto;
 }
 
-.sue-cell {
+.cell {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,7 +176,7 @@
 }
 
 /** 점수 */
-.sue-score-container {
+.score-container {
     display: flex;
     justify-content: space-evenly;
     margin: 20px;
@@ -185,18 +184,18 @@
     font-size: 1.2rem;
 }
 
-.sue-score-box {
+.score-box {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.sue-score-box span:first-child {
+.score-box span:first-child {
     margin-bottom: 5px;
 }
 
 /** 게임 결과 모달창 */
-.sue-modal {
+.modal {
     display: none;
     position: fixed;
     z-index: 999;
@@ -208,7 +207,7 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.sue-modal-content {
+.modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -217,11 +216,11 @@
     text-align: center;
 }
 
-.sue-modal-buttons {
+.modal-buttons {
     margin-top: 20px;
 }
 
-.sue-modal-buttons button {
+.modal-buttons button {
     margin-right: 10px;
 }
 
@@ -253,3 +252,5 @@
     top: 5%;
     right: 5%;
 }
+
+/* /배경 디자인 */

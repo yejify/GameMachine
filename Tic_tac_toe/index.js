@@ -1,191 +1,210 @@
 // O, X 선택
-let suePlayer = '';
-let sueComputer = '';
+let Player = '';
+let Computer = '';
 
 window.onload = function () {
-    let oButton = document.querySelector('.sue-main-o');
-    let xButton = document.querySelector('.sue-main-x');
+    let oButton = document.querySelector('.main-o');
+    let xButton = document.querySelector('.main-x');
 
-    let sueHomeScreen = document.querySelector('#sue-home-screen');
-    let sueGameScreen = document.querySelector('#sue-game-screen');
+    let HomeScreen = document.querySelector('#home-screen');
+    let GameScreen = document.querySelector('#game-screen');
 
     oButton.addEventListener('click', function() {
-        suePlayer = 'O';
-        sueComputer = 'X';
+        Player = 'O';
+        Computer = 'X';
 
-        sueHomeScreen.style.display = 'none';
-        sueGameScreen.style.display = 'block';
+        HomeScreen.style.display = 'none';
+        GameScreen.style.display = 'block';
 
-        sueStartGame();
+        StartGame();
     })
 
     xButton.addEventListener('click', function() {
-        suePlayer = 'X';
-        sueComputer = 'O';
+        Player = 'X';
+        Computer = 'O';
 
-        sueHomeScreen.style.display = 'none';
-        sueGameScreen.style.display = 'block';
+        HomeScreen.style.display = 'none';
+        GameScreen.style.display = 'block';
 
-        sueStartGame();
+        StartGame();
     })
 }
 
 // 게임 화면
-const sueCells = document.querySelectorAll('.sue-cell');
-let sueStartCells = ["", "", "", "", "", "", "", "", ""];
-let sueCurrentPlayer = "O"; // O를 선택하면 항상 게임 먼저 시작하기 
-let sueRunning = false;
-let sueGameEnded = false;
+const Cells = document.querySelectorAll('.cell');
+let StartCells = ["", "", "", "", "", "", "", "", ""];
+let CurrentPlayer = "O"; // O를 선택하면 항상 게임 먼저 시작하기 
+let Running = false;
+let GameEnded = false;
 
-const sueTurn = document.querySelector('.sue-turn p');
+const Turn = document.querySelector('.turn p');
 
-function sueStartGame() {
-    sueStartCells = ["", "", "", "", "", "", "", "", ""];
-    sueCurrentPlayer = "O";
-    sueRunning = true;
-    sueGameEnded = false;
+function StartGame() {
+    StartCells = ["", "", "", "", "", "", "", "", ""];
+    CurrentPlayer = "O";
+    Running = true;
+    GameEnded = false;
 
-    sueCells.forEach(cell => {
+    disableCellClicks();
+    //컴퓨터 차례에 플레이어가 셀 선택하지 못 하게 하기
+
+    Cells.forEach(cell => {
         cell.addEventListener('click', cellClickHandler);
     });
 
     // 누구 차례인지 표시
-    if (sueCurrentPlayer === suePlayer){
-        sueTurn.innerHTML = 'Player\'s turn';
-    } else if (sueCurrentPlayer === sueComputer) {
-        sueTurn.innerHTML = 'Computer\'s turn';
-        setTimeout(sueMakeComputerMove, 1000);
+    if (CurrentPlayer === Player){
+        Turn.innerHTML = 'Player\'s turn';
+        enableCellClicks();
+        //플레이어 차례에 플레이어가 셀 선택 가능하게 하기
+    } else if (CurrentPlayer === Computer) {
+        Turn.innerHTML = 'Computer\'s turn';
+        setTimeout(MakeComputerMove, 1000);
     }
     
     // 누가 O이고, 누가 X인지 점수 위에 표시
     if (!isLabelsSet) {
-        playerLabelElement.innerHTML = `${playerLabelElement.innerHTML}(${suePlayer})`;
-        computerLabelElement.innerHTML = `${computerLabelElement.innerHTML}(${sueComputer})`;
+        playerLabelElement.innerHTML = `${playerLabelElement.innerHTML}(${Player})`;
+        computerLabelElement.innerHTML = `${computerLabelElement.innerHTML}(${Computer})`;
         isLabelsSet = true;
       }
 }
 
-const playerLabelElement = document.querySelector('.sue-player span:first-child');
-const computerLabelElement = document.querySelector('.sue-computer span:first-child');
+const playerLabelElement = document.querySelector('.player span:first-child');
+const computerLabelElement = document.querySelector('.computer span:first-child');
 let isLabelsSet = false;
 
 // 셀 선택시 
 function cellClickHandler() {
-    if (!sueRunning || sueGameEnded) return;
-    //게임이 아직 진행중인지 이미 끝났는지 체크
+    if (!Running || GameEnded || CurrentPlayer !== Player) return;
+    //게임이 아직 진행중인지 이미 끝났는지 아니면 Player의 차례가 아닌지 체크하기
 
     const cell = this;
     const index = parseInt(cell.dataset.cellIndex);
 
-    if (sueStartCells[index] === "") {
-        sueStartCells[index] = suePlayer;
-        cell.textContent = suePlayer;
+    if (StartCells[index] === "") {
+        StartCells[index] = Player;
+        cell.textContent = Player;
 
-        const winner = sueGameWin();
+        const winner = GameWin();
         if (winner) {
-          sueEndGame(winner);
+          EndGame(winner);
           return;
         }
 
-        sueCurrentPlayer = sueComputer; // 게임 선수 교체
+        CurrentPlayer = Computer; // 게임 선수 교체
 
         // 누구 차례인지 표시
-        if (sueCurrentPlayer === suePlayer){
-            sueTurn.innerHTML = 'Player\'s turn';
+        if (CurrentPlayer === Player){
+            Turn.innerHTML = 'Player\'s turn';
         } else {
-            sueTurn.innerHTML = 'Computer\'s turn';
+            Turn.innerHTML = 'Computer\'s turn';
         }
         
-        setTimeout(sueMakeComputerMove, 600); // 컴퓨터 차례에 자동으로 플레이하기
+        setTimeout(MakeComputerMove, 600); // 컴퓨터 차례에 자동으로 플레이하기
     }
 }
 
-// 컴퓨터 자동으로 플레이하게 하기
-const sueMakeComputerMove = () => {
-    if (!sueRunning || sueGameEnded) return;
+// 셀클릭 이벤트 비활성화
+function disableCellClicks() {
+    Cells.forEach(cell => {
+      cell.removeEventListener('click', cellClickHandler);
+    });
+  }
 
-    const emptyCells = Array.from(sueCells).filter(cell => cell.textContent === ""); 
+// 셀클릭 이벤트 활성화
+  function enableCellClicks() {
+    Cells.forEach(cell => {
+      cell.addEventListener('click', cellClickHandler);
+    });
+  }
+
+// 컴퓨터 차례에 자동으로 플레이하게 하기
+const MakeComputerMove = () => {
+    if (!Running || GameEnded) return;
+
+    const emptyCells = Array.from(Cells).filter(cell => cell.textContent === ""); 
     const randomIndex = Math.floor(Math.random() * emptyCells.length);
     const cell = emptyCells[randomIndex];
 
     if (cell) {
-        cell.textContent = sueComputer;
-        sueStartCells[parseInt(cell.dataset.cellIndex)] = sueComputer;
+        cell.textContent = Computer;
+        StartCells[parseInt(cell.dataset.cellIndex)] = Computer;
 
-        const winner = sueGameWin(); // 이긴 사람 확인하기
+        const winner = GameWin(); // 이긴 사람 확인하기
         if (winner) {
-            sueEndGame(winner);
+            EndGame(winner);
             return;
         }
 
-        sueCurrentPlayer = suePlayer; // 플레이어 차례로 교체
+        CurrentPlayer = Player; // 플레이어 차례로 교체
 
         // 누구 차례인지 표시
-          if (sueCurrentPlayer === suePlayer){
-            sueTurn.innerHTML = 'Player\'s turn';
+          if (CurrentPlayer === Player){
+            Turn.innerHTML = 'Player\'s turn';
         } else {
-            sueTurn.innerHTML = 'Computer\'s turn';
+            Turn.innerHTML = 'Computer\'s turn';
         }
     }
 }
 
 // 이긴 사람 확인하기
-const sueGameWin = () => {
-    const sueWinConditions = [
+const GameWin = () => {
+    const WinConditions = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // 가로
         [0, 3, 6], [1, 4, 7], [2, 5, 8], // 세로
         [0, 4, 8], [2, 4, 6] // 대각선
     ];
 
-    let sueIsTie = true;
+    let IsTie = true;
 
     // 게임에서 이겼을 경우
-    for (const condition of sueWinConditions) {
+    for (const condition of WinConditions) {
         const [a, b, c] = condition;
         if (
-            sueStartCells[a] !== "" &&
-            sueStartCells[a] === sueStartCells[b] &&
-            sueStartCells[a] === sueStartCells[c]
+            StartCells[a] !== "" &&
+            StartCells[a] === StartCells[b] &&
+            StartCells[a] === StartCells[c]
         ) {
-            return sueStartCells[a]; // 이긴 플레이어 반환
+            return StartCells[a]; // 이긴 플레이어 반환
         }
     }
 
     // 아무도 게임에서 이기지 않았을 경우
-    for (const cell of sueStartCells) {
+    for (const cell of StartCells) {
         if (cell === "") {
-            sueIsTie = false;
+            IsTie = false;
             break;
         }
     }
 
     // 만약 모든 셀이 채워져 있으면 비긴 것으로 처리
-    if (sueIsTie) {
+    if (IsTie) {
         return "tie";
     }
     return ""; // 아무도 게임에서 이기지 않았을 경우
 };
 
 //게임 종료 후 처리
-let suePlayerScore = 0;
-let sueComputerScore = 0;
-let sueTieScore = 0;
+let PlayerScore = 0;
+let ComputerScore = 0;
+let TieScore = 0;
 
-function sueEndGame(winner) {
-    sueGameEnded = true;
-    sueCells.forEach(cell => {
+function EndGame(winner) {
+    GameEnded = true;
+    Cells.forEach(cell => {
       cell.removeEventListener('click', cellClickHandler);
     });
   
-    if (winner === suePlayer) {
-      sueShowModal("Congrats, You won!");
-      suePlayerScore++;
-    } else if (winner === sueComputer) {
-      sueShowModal("The computer wins.");
-      sueComputerScore++;
+    if (winner === Player) {
+      ShowModal("Congrats, You won!");
+      PlayerScore++;
+    } else if (winner === Computer) {
+      ShowModal("The computer wins.");
+      ComputerScore++;
     } else {
-      sueShowModal("It's a tie!");
-      sueTieScore++;
+      ShowModal("It's a tie!");
+      TieScore++;
     }
 
     updateScoreDisplay();
@@ -193,70 +212,70 @@ function sueEndGame(winner) {
   
   // 게임 score 표시하기 
   function updateScoreDisplay() {
-    const playerScoreElement = document.querySelector('.sue-player span:nth-child(2)');
-    const tieScoreElement = document.querySelector('.sue-tie span:nth-child(2)');
-    const pcScoreElement = document.querySelector('.sue-computer span:nth-child(2)');
+    const playerScoreElement = document.querySelector('.player span:nth-child(2)');
+    const tieScoreElement = document.querySelector('.tie span:nth-child(2)');
+    const pcScoreElement = document.querySelector('.computer span:nth-child(2)');
 
-    playerScoreElement.textContent = suePlayerScore;
-    tieScoreElement.textContent = sueTieScore;
-    pcScoreElement.textContent = sueComputerScore;
+    playerScoreElement.textContent = PlayerScore;
+    tieScoreElement.textContent = TieScore;
+    pcScoreElement.textContent = ComputerScore;
   }
 
 // 게임 결과 메시지 모달 창
-const sueModal = document.getElementById('sueModal');
+const Modal = document.getElementById('Modal');
     // 승부 결과 메시지와 함께 모달 창 띄우기
-function sueShowModal(message) {
-    const modalText = document.getElementById('sueModalText');
+function ShowModal(message) {
+    const modalText = document.getElementById('ModalText');
 
     modalText.textContent = message;
-    sueModal.style.display = 'block';
+    Modal.style.display = 'block';
 }
 
     // 모달창 숨기기
 function hideModal() {
-    sueModal.style.display = 'none';
+    Modal.style.display = 'none';
 }
 
     // 게임 끝난 후 이 상태로 쭉 진행할 것인지, 처음부터 다시 시작할 것인지 선택하기
-const sueContinueBtn = document.getElementById('sueContinueBtn');
-const sueResetBtn = document.getElementById('sueResetBtn');
+const ContinueBtn = document.getElementById('ContinueBtn');
+const ResetBtn = document.getElementById('ResetBtn');
 
 // continue 버튼 누를 때 
-sueContinueBtn.addEventListener('click', function() {
+ContinueBtn.addEventListener('click', function() {
     hideModal();
 
     // 게임 셀 비우기
-    sueCells.forEach(cell => {
+    Cells.forEach(cell => {
         cell.textContent = "";
     })
 
     //새로운 게임 시작
-    sueStartGame();
+    StartGame();
 })
 
 // reset 버튼 누를 때
-sueResetBtn.addEventListener('click', function() {
+ResetBtn.addEventListener('click', function() {
     hideModal();
 
-    suePlayerScore = 0;
-    sueTieScore = 0;
-    sueComputerScore = 0;
+    PlayerScore = 0;
+    TieScore = 0;
+    ComputerScore = 0;
 
     updateScoreDisplay();
 
     // 게임 셀 비우기
-    sueCells.forEach(cell => {
+    Cells.forEach(cell => {
         cell.textContent = "";
     })
 
     //새로운 게임 시작
-    sueStartGame();
+    StartGame();
 })
 
 // 이전으로 돌아가서 다시 O, X 중 선택하기
-const sueGoBackSideBtn = document.getElementsByClassName('.sue-go-back');
+const GoBackSideBtn = document.getElementsByClassName('.go-back');
 
-sueGoBackSideBtn.addEventListener('click', function() {
-    sueHomeScreen.style.display = 'block';
-    sueGameScreen.style.display = 'none';
+GoBackSideBtn.addEventListener('click', function() {
+    HomeScreen.style.display = 'block';
+    GameScreen.style.display = 'none';
 });
