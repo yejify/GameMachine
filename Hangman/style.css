@@ -43,6 +43,11 @@ body {
 .container {
   text-align: center;
   /* margin-top: 20px; */
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container h1 {
@@ -61,7 +66,7 @@ body {
   display: flex;
   gap: 0 10px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .container ul li {
   font-size: 35px;
@@ -113,13 +118,13 @@ p.life {
   color: #a52a2a;
   font-size: 30px;
   display: inline-block;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 button.resetButton {
   margin-top: 20px;
   color: #fff;
-  background-color: #d56fa7;
+  background-color: #f39ccc;
   padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -130,7 +135,7 @@ button.resetButton {
 }
 
 button.resetButton:hover {
-  background-color: #b1397b;
+  background-color: #f289c3;
 }
 
 .modal {
@@ -140,7 +145,7 @@ button.resetButton:hover {
   width: 350px;
   height: 200px;
   display: none;
-  background-color: #f2f085;
+  background-color: #f2f196;
   text-align: center;
   border-radius: 20px;
   transform: translateX(-50%) translateY(-50%);
@@ -155,7 +160,7 @@ button.resetButton:hover {
   margin-top: 50px;
   margin-bottom: 30px;
   font-size: 55px;
-  color: #b1397b;
+  color: #f39ccc;
 }
 
 .home {
@@ -167,10 +172,10 @@ button.resetButton:hover {
   border-radius: 5px;
   font-size: 15px;
   padding: 7px 12px;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .home:hover {
   border: 2px solid #fff;
-  background-color: #9c69d5;
+  background-color: #f2f085;
 }
