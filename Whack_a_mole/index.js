@@ -104,3 +104,38 @@ document.querySelector("ul").addEventListener("click", catchMole);
 
 //restart 버튼 클릭이벤트
 document.querySelector("#restartBtn").addEventListener("click", reloadGame);
+
+// // 클릭 이벤트가 발생하지 않을 때 실행할 함수
+// function removeHole() {
+//     // removeHole() 함수의 동작을 여기에 작성
+//     console.log("removeHole() 함수 실행");
+//   }
+  
+//   // 클릭 이벤트 리스너를 담을 변수
+//   var clickListener;
+  
+//   // 클릭 이벤트 핸들러
+//   function handleClickEvent(event) {
+//     // 클릭 이벤트가 발생했을 때 수행할 동작을 여기에 작성
+//     console.log("클릭 이벤트 발생");
+//   }
+  
+//   // 클릭 이벤트 리스너를 변수에 할당하고 document에 등록
+//   clickListener = handleClickEvent;
+//   document.addEventListener('click', clickListener);
+  
+//   // 3초 타이머 설정
+//   var timer = setTimeout(function() {
+//     // 타이머가 만료되었을 때 실행될 함수
+//     // 클릭 이벤트가 발생하지 않았으므로 removeHole() 함수 실행
+//     removeHole();
+    
+//     // 클릭 이벤트 리스너 제거
+//     document.removeEventListener('click', clickListener);
+//   }, 3000);
+  
+//   // 클릭 이벤트가 발생한 경우 타이머를 제거하고 클릭 이벤트 리스너도 제거
+//   document.addEventListener('click', function(event) {
+//     clearTimeout(timer);
+//     document.removeEventListener('click', clickListener);
+//   });

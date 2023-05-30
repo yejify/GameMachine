@@ -9,7 +9,8 @@
 }
 
 body {
-    background-color: #1370AC;
+    /* background-color: #1370AC; */
+    background-image: url(../assets/whack_a_mole_BG.png);
     text-align: center;
 }
 
@@ -45,6 +46,7 @@ a{
 
 h1{
     font-size: 60px;
+    color: aliceblue;
 }
 
 button{
@@ -53,6 +55,7 @@ button{
     cursor: pointer;
     padding-left: 10px;
     overflow: hidden;
+    color: aliceblue;
 }
 
 #ground{
@@ -124,11 +127,11 @@ img{
     background-image: url(../assets/btnGreen.PNG);
     font-size: 40px;
     text-decoration: none;
-    color: black;
+    color:aliceblue;
 }
 
 #gameResult{
-    background-color: #cacaca;
+    background-color: rgba(158, 229, 255, 0.581);
     width: 480px;
     padding:10px 0 20px 0;
     margin: auto;
@@ -136,6 +139,7 @@ img{
 
 p{
     font-size: 50px;
+    color: aliceblue;
 }
 
 #resultScore{
