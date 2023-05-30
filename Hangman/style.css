@@ -44,7 +44,7 @@ body {
 .container h1 {
   color: #d399b9;
   font-size: 50px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .container canvas {
@@ -115,11 +115,40 @@ button.resetButton {
   margin-top: 20px;
   color: #fff;
   background-color: #d399b9;
-  padding: 5px 10px;
+  padding: 10px 20px;
+  box-sizing: border-box;
   border-radius: 5px;
+  font-size: 15px;
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }
 
 button.resetButton:hover {
-  border: 1px solid #fff;
+  border: 3px solid white;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 200px;
+  display: none;
+  background-color: #9055a2;
+  text-align: center;
+  border-radius: 15px;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal strong {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 50px;
+  color: white;
 }

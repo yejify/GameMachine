@@ -86,7 +86,7 @@ window.onload = function () {
     "COMMENT",
   ];
   const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-  // console.log(randomWord);
+  console.log(randomWord);
 
   for (let i = 0; i < randomWord.length; i++) {
     const result = document.querySelector(".result");
@@ -128,15 +128,27 @@ window.onload = function () {
     };
   }
 
+  // 모달창
+  const modal = document.querySelector(".modal");
+  const modalComment = document.querySelector(".modalComment");
+  function modalShow() {
+    modal.classList.add("show");
+  }
+
   // 버튼 눌렀을 때 틀렸을 경우 목숨 깍아줌
   function comments() {
     const life = document.querySelector(".life");
     life.innerHTML = "LIFE :" + lives;
     if (lives < 1) {
-      life.innerHTML = "GAME OVER";
+      // life.innerHTML = "GAME OVER";
+      // 졌을 경우 모달창 멘트 바꿔주기
+      modalComment.innerHTML = "";
+      modalComment.innerHTML = "GAME OVER";
+      modal.classList.add("show");
     }
     if (count === randomWord.length) {
-      life.innerHTML = "YOU WIN!!";
+      // life.innerHTML = "YOU WIN!!";
+      modal.classList.add("show");
     }
   }
 
@@ -215,8 +227,8 @@ window.onload = function () {
 
   // 다시하기 버튼
   const reset = document.querySelector(".resetButton");
-  reset.onclick = function () {
-    // context.clearRect(0, 0, 1000, 1000);
+  reset.addEventListener("click", () => {
     window.location.reload();
-  };
+    modal.classList.remove("show");
+  });
 };
