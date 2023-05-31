@@ -83,7 +83,12 @@
 
 ### 🎮 게임로직
 
-https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0613ca19-5469-41dd-9e0c-3eca575eafd3%2FUntitled.png?table=block&id=960d4f85-1dd6-44dd-966e-610bc3a8119b&spaceId=c69962b0-3951-485b-b10a-5bb29576bba8&width=1790&userId=9a863050-0951-450c-ac35-8adab8415ae2&cache=v2
+1. 사용자가 가진 기회는 총 10회
+2. 가위,바위,보 중 내고 싶은 이미지를 클릭
+3. 이기거나,지거나,비기면 10회에서 횟수 -1 차감
+4. 컴퓨터가 이기면 com 전광판 +1, 유저가 이기면 user 전광판 +1
+5. 남은 기회가 0이 되면 누가 이겼는지 알림창이 뜹니다.
+6. 기회 0이면 Reset 버튼 활성화되며 더이상 가위바위보를 낼 수 없습니다
 
 ---
 
