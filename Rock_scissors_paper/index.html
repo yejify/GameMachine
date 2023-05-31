@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock scissors paper</title>
-    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/8b26625b68.js"
+      crossorigin="anonymous"
+    ></script>
+    <title></title>
   </head>
-  <body>
-    
+  <body class="top-body">
+    <h1>Rock Scissors Paper</h1>
+    <div class="sA-body">
+      <div class="cloud">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="top">
+        <p>남은 기회</p>
+        <div id="count">10</div>
+      </div>
+      <div class="sA-container">
+        <div class="middle">
+          <div class="count-wrap">
+            <div class="count-player">
+              <p>Player</p>
+              <span id="player-score">0</span>
+            </div>
+            <div class="count-com">
+              <p>Com</p>
+              <span id="com-score">0</span>
+            </div>
+          </div>
+          <div class="picture">
+            <img src="./img/move.gif" alt="" />
+            <img src="./img/move.gif" alt="" />
+          </div>
 
-    <script src="./index.js"></script>
+          <div class="btn-wrap">
+            <button id="button-left" type="button">
+              <img src="./img/img1.png" alt="" />
+            </button>
+            <button id="button-middle" type="button">
+              <img src="./img/img2.png" alt="" />
+            </button>
+            <button id="button3-right" type="button">
+              <img src="./img/img3.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <p class="btn-reset-t">다시하기</p>
+      <button id="btn-reset" class="btn-reset" type="button">Reset</button>
+      <script src="./main.js"></script>
+    </div>
   </body>
 </html>
