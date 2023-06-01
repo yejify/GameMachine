@@ -122,15 +122,15 @@ p.life {
 }
 
 button.resetButton {
-  margin-top: 20px;
+  display: block;
+  box-sizing: border-box;
   color: #fff;
   background-color: #f39ccc;
-  padding: 10px 20px;
-  box-sizing: border-box;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 10px;
   cursor: pointer;
-  display: block;
+  padding: 8px 15px;
+  margin-top: 0px;
   margin: 0 auto;
 }
 
@@ -157,8 +157,8 @@ button.resetButton:hover {
 
 .modal strong {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 10px;
   font-size: 55px;
   color: #f39ccc;
 }
@@ -178,4 +178,13 @@ button.resetButton:hover {
 .home:hover {
   border: 2px solid #fff;
   background-color: #f2f085;
+}
+
+.correctAnswer {
+  color: #b1397b;
+  font-size: 30px;
+  border-bottom: 3px solid #b1397b;
+  width: 80px;
+  margin: 0 auto;
+  margin-bottom: 15px;
 }

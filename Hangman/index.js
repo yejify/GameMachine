@@ -122,6 +122,8 @@ window.onload = function () {
         // console.log(lives);
         comments();
         animate();
+        const correctAnswer = document.querySelector(".correctAnswer");
+        correctAnswer.innerHTML = randomWord;
       } else {
         comments();
       }
