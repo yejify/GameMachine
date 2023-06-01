@@ -67,8 +67,8 @@ function StartGame() {
     
     // 누가 해고, 누가 갈매기인지 점수 위에 표시
     if (!isLabelsSet) {
-        playerLabelElement.innerHTML = `${playerLabelElement.innerHTML}(${Player})`;
-        computerLabelElement.innerHTML = `${computerLabelElement.innerHTML}(${Computer})`;
+        playerLabelElement.innerHTML = `${playerLabelElement.innerHTML}${Player}`;
+        computerLabelElement.innerHTML = `${computerLabelElement.innerHTML}${Computer}`;
         isLabelsSet = true;
       }
 }
