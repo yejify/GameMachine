@@ -60,7 +60,6 @@ window.onload = function () {
     "GALAXY",
     "CAMPUS",
     "LIBRARY",
-    "INFORMATION",
     "ACADEMIC",
     "PARK",
     "CENTER",
@@ -84,6 +83,17 @@ window.onload = function () {
     "BUTTON",
     "RESULT",
     "COMMENT",
+    "GAME",
+    "LEAGUE",
+    "ROLE",
+    "HACKER",
+    "DEEP",
+    "CORE",
+    "LISTEN",
+    "SPEAK",
+    "KEEP",
+    "MAX",
+    "SUGAR",
   ];
   const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
   console.log(randomWord);
