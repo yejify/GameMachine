@@ -20,7 +20,9 @@ body {
   );
   font-family: "NeoDunggeunmo";
   position: relative;
-  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 body::after {
   content: "";
