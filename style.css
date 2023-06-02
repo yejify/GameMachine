@@ -5,6 +5,14 @@
     font-style: normal;
 }
 
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
 button {
     background: inherit;
     border: none;
@@ -24,19 +32,6 @@ body {
     font-family: 'NeoDunggeunmo';
 }
 
-body::after {
-    content: '';
-    position: absolute;
-    background-image: url(./assets/meteor.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    width: 250px;
-    height: 250px;
-}
-
-.main {}
-
 .title {
     color: white;
     text-align: center;
@@ -44,15 +39,27 @@ body::after {
     text-shadow: 4px 5px 6px rgb(106, 39, 39);
 }
 
-.into-game {
-    /* position: absolute; */
+.flex-container {
+    display: flex;
+    gap: 20px;
+    margin: 20px auto;
+    width: 60%;
     color: white;
-    margin: auto;
-    display: block;
-    text-align: center;
-    margin-top: 260px;
-    font-family: 'NeoDunggeunmo';
-    font-size: 120px;
-    /* top: 50%;
-    left: 50%; */
+}
+
+.flex-container:nth-child(2) {
+    margin-top: 170px;
+    width: 55%;
+}
+
+.game-item {
+    margin: 0 auto;
+    /* height: auto; */
+    /* width: 220px; */
+}
+
+.game-item img {
+    display:block;
+    margin: 0 auto;
+	width:100%;
 }

@@ -92,8 +92,8 @@ class CheckPair {
 }
 
 function shuffle(array) {
-  // return [...array, ...array].sort();
-  return [...array, ...array].sort(() => Math.random() - 0.5);
+  return [...array, ...array].sort();
+  // return [...array, ...array].sort(() => Math.random() - 0.5);
 }
 
 function createCardItem() {
@@ -158,6 +158,7 @@ function reverse(front, back, matcher, time) {
               prompt("기록 저장을 위해 이름을 입력하세요."),
               timeValue.textContent
             );
+            readRanker();
           }
         } else {
           isClickable = false; // 클릭 불가능한 상태로 변경
@@ -223,6 +224,7 @@ function startGame(checkPair, time) {
 }
 
 btnStart.addEventListener("click", (e) => {
+  e.stopPropagation();
   const checkPair = new CheckPair();
   const time = new Time();
 
@@ -246,10 +248,10 @@ modalNo.addEventListener("click", () => {
   modalContainer.style.display = "none";
 });
 
-winerAgain.addEventListener("click", () => {
+winerAgain.addEventListener("click", (event) => {
   winerModal.style.display = "none";
   createCardItem();
-  btnStart.click();
+  // btnStart.click();
 });
 
 modalClose.addEventListener("click", () => {
