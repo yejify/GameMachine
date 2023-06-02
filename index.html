@@ -1,92 +1,28 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko-KR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TIC TAC TOE</title>
-  <link rel="stylesheet" href="./style.css">
-
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Machine</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
-<body class="body">
-
-  <div id="home-screen" class="game-tictactoe">
-    <header class="title">
-      <p class="title-p">TIC TAC TOE</p>
-    </header>
-    <main class="side">
-      <span class="side-sun" data-caption="You will start first">
-        <img src="sun.svg" alt="sun">
-      </span>
-      <span class="side-seagull" data-caption="The computer starts first">
-        <img src="seagull.svg" alt="seagull">
-      </span>
-    </main>
-    <footer class="footer blink">Choose a side</footer>
-  </div>
-
-  <!-- 게임 화면 -->
-  <div id="game-screen" class="game-tictactoe" style="display: none;">
-    <div class="goback-container">
-      <button class="goback-btn"><a href="">&lt;</a></button>
-      <div id="goback-caption">Choose a side again</div>
-    </div>
-    <header class="title">
-      <p class="title-p">TIC TAC TOE</p>
-    </header>
-    <div class="turn">
-      <p></p>
-    </div>
-    <main class="game-board">
-      <div data-cell-index="0" class="cell"></div>
-      <div data-cell-index="1" class="cell"></div>
-      <div data-cell-index="2" class="cell"></div>
-      <div data-cell-index="3" class="cell"></div>
-      <div data-cell-index="4" class="cell"></div>
-      <div data-cell-index="5" class="cell"></div>
-      <div data-cell-index="6" class="cell"></div>
-      <div data-cell-index="7" class="cell"></div>
-      <div data-cell-index="8" class="cell"></div>
-    </main>
-    <footer>
-      <div class="score-container">
-        <div class="score-box player">
-          <span class="label-img">Player</span>
-          <span>0</span>
-        </div>
-        <div class="score-box tie">
-          <span>Ties</span>
-          <span>0</span>
-        </div>
-        <div class="score-box computer">
-          <span class="label-img">Computer</span>
-          <span>0</span>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- 게임 결과 모달창 -->
-  <div id="Modal" class="modal">
-    <div class="modal-content">
-      <p id="ModalText"></p>
-      <div class="modal-buttons">
-        <button id="ContinueBtn">Continue</button>
-        <button id="ResetBtn">Reset</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="background-img">
-    <img class="seagull" src="./seagull.svg" alt="background-seagull">
-    <img class="seagull" src="./seagull.svg" alt="background-seagull">
-    <img class="seagull" src="./seagull.svg" alt="background-seagull">
-    <img class="sun" src="./sun.svg" alt="background-sun">
-  </div>
-
-
+<body>
+  <div class="main">
+    <h1 class="title">Retro Arcade</h1>
+    <ul class="flex-container">
+      <li class="game-item"><a href="Card_match_game"><img src="./assets//carrdMatchThumbnail.png" alt=""></a></li>
+      <li class="game-item"><a><img src="./assets//carrdMatchThumbnail.png" alt=""></a></li>
+      <li class="game-item"><img src="./assets//carrdMatchThumbnail.png" alt=""></li>
+    </ul>
+    <ul class="flex-container">
+      <li class="game-item"><img src="./assets//carrdMatchThumbnail.png" alt=""></li>
+      <li class="game-item"><img src="./assets//carrdMatchThumbnail.png" alt=""></li>
+      <li class="game-item"><img src="./assets//carrdMatchThumbnail.png" alt=""></li>
+      <li class="game-item"><img src="./assets//carrdMatchThumbnail.png" alt=""></li>
+    </ul>
   <script src="./index.js"></script>
 </body>
 
