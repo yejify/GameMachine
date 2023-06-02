@@ -8,6 +8,8 @@
 body {
     background: url(../assets/night.png) no-repeat;
     background-size: cover;
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     font-family: 'NeoDunggeunmo';
@@ -60,7 +62,6 @@ h2 {
     border-radius: 40px;
     font-family: 'NeoDunggeunmo';
     font-size: 17px;
-    margin-bottom: 15px;
 }
 
 .btnstart:hover {
