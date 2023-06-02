@@ -96,7 +96,7 @@ window.onload = function () {
     "SUGAR",
   ];
   const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-  console.log(randomWord);
+  // console.log(randomWord);
 
   for (let i = 0; i < randomWord.length; i++) {
     const result = document.querySelector(".result");
