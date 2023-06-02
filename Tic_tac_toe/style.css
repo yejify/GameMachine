@@ -14,16 +14,16 @@
 .body {
     height: 100vh;
     background: linear-gradient(180deg, #E38845 25.52%, #F0E36F 100%);
+    background-repeat: no-repeat;
 }
 
 /* 홈 화면 */
 
 /** div 박스 */
 .game-tictactoe {
-    color: black;
     height: 100vh;
     width: 613px;
-
+    color: #fff;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -78,7 +78,7 @@
     top: 65%;
     left: 50%;
     transform: translateX(-50%);
-    color: black;
+    color: #fff;
     font-size: 1.2rem;
     white-space: nowrap;
     text-shadow: none;
@@ -118,7 +118,7 @@
 
 .goback-btn a {
     text-decoration: none;
-    color: black;
+    color: #fff;
 }
 
 #goback-caption {
@@ -133,8 +133,8 @@
     display: inline;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgba(10, 159, 59, 0.7);
-    color: black;
+    background-color: rgba(145, 143, 143, 0.7);
+    color: #fff;
     white-space: nowrap;
 }
 
@@ -154,19 +154,18 @@
 .game-board {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    border: 2px solid black;
-    background-color: #fff;
-
+    border: 2px solid #Fff;
     width: 80%;
     height: 60%;
     margin: 0 auto;
+    background: rgba(145, 143, 143, 0.3);
 }
 
 .cell {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid #fff;
     font-size: 7rem;
     line-height: 1;
 }
@@ -179,12 +178,12 @@
     align-items: center;
     margin: 0 auto;
     padding: 5px;
-    border: 4px solid black;
+    border: 4px solid #fff;
     margin-top: 20px;
 
     width: 80%;
-    background-color: #fff;
     font-size: 1.2rem;
+    background-color: rgba(145, 143, 143, 0.3);
 }
 
 .score-box {
@@ -219,10 +218,9 @@
 .modal-content {
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
     text-align: center;
-
-    background-color: green;
+    color: #fff;
+    background-color: #E18D4F;
     width: 300px;
     font-size: 1.3rem;
     font-family: 'NeoDunggeunmo';
@@ -234,10 +232,9 @@
 
 .modal-buttons button {
     margin-right: 10px;
-    padding: 5px;
-    border-radius: 10px;
+    padding: 10px 5px 10px 5px;
     border: none;
-    color: green;
+    color: #E18D4F;
     font-weight: bold;
 }
 
