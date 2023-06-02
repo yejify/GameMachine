@@ -9,7 +9,6 @@
 //  3-3 같은 것이 있으면 빈칸에 표시
 //  3-4 같은 것이 없으면 목숨 하나 차감
 // 4. 목숨 한개씩 차감될 때마다 행맨 그려짐
-//  4-1
 
 window.onload = function () {
   // 알파벳 리스트 + 버튼
@@ -59,9 +58,45 @@ window.onload = function () {
     "PHONE",
     "MACBOOK",
     "GALAXY",
+    "CAMPUS",
+    "LIBRARY",
+    "ACADEMIC",
+    "PARK",
+    "CENTER",
+    "BASEBALL",
+    "MATH",
+    "PAPER",
+    "BOOK",
+    "BLOOD",
+    "DESIGN",
+    "ART",
+    "COLOR",
+    "LIST",
+    "RANDOM",
+    "FLOOR",
+    "CHECK",
+    "COUNT",
+    "LIFE",
+    "FREE",
+    "DOCUMENT",
+    "ELEMENT",
+    "BUTTON",
+    "RESULT",
+    "COMMENT",
+    "GAME",
+    "LEAGUE",
+    "ROLE",
+    "HACKER",
+    "DEEP",
+    "CORE",
+    "LISTEN",
+    "SPEAK",
+    "KEEP",
+    "MAX",
+    "SUGAR",
   ];
   const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-  console.log(randomWord);
+  // console.log(randomWord);
 
   for (let i = 0; i < randomWord.length; i++) {
     const result = document.querySelector(".result");
@@ -81,26 +116,35 @@ window.onload = function () {
       this.setAttribute("disabled", "disabled");
       const guess = this.innerHTML;
       const guesses = document.querySelectorAll("li");
-      console.log(guess);
+      // console.log(guess);
 
       for (let i = 0; i < randomWord.length; i++) {
         // 누른 버튼의 알파벳과 정답에 있는 알파벳과 같을 경우 빈칸에 표시해주기
         if (randomWord[i] === guess) {
           guesses[i].innerHTML = guess;
           count = count + 1;
-          console.log(count);
+          // console.log(count);
         }
       }
       const j = randomWord.indexOf(guess);
       if (j === -1) {
         lives -= 1;
-        console.log(lives);
+        // console.log(lives);
         comments();
         animate();
+        const correctAnswer = document.querySelector(".correctAnswer");
+        correctAnswer.innerHTML = randomWord;
       } else {
         comments();
       }
     };
+  }
+
+  // 모달창
+  const modal = document.querySelector(".modal");
+  const modalComment = document.querySelector(".modalComment");
+  function modalShow() {
+    modal.classList.add("show");
   }
 
   // 버튼 눌렀을 때 틀렸을 경우 목숨 깍아줌
@@ -108,10 +152,15 @@ window.onload = function () {
     const life = document.querySelector(".life");
     life.innerHTML = "LIFE :" + lives;
     if (lives < 1) {
-      life.innerHTML = "GAME OVER";
+      // life.innerHTML = "GAME OVER";
+      // 졌을 경우 모달창 멘트 바꿔주기
+      modalComment.innerHTML = "";
+      modalComment.innerHTML = "GAME OVER";
+      modal.classList.add("show");
     }
     if (count === randomWord.length) {
-      life.innerHTML = "YOU WIN!!";
+      // life.innerHTML = "YOU WIN!!";
+      modal.classList.add("show");
     }
   }
 
@@ -123,7 +172,7 @@ window.onload = function () {
 
   function animate() {
     let drawMe = lives;
-    console.log(drawArray[drawMe]);
+    // console.log(drawArray[drawMe]);
     drawArray[drawMe]();
   }
 
@@ -188,10 +237,10 @@ window.onload = function () {
     frame1,
   ];
 
-  // 다시하기 버튼 기능 추가 필요
-  const reset = document.querySelector(".again");
-  reset.addEventListener("click", function () {
-    let lives = 10;
-    let count = 0;
+  // 다시하기 버튼
+  const reset = document.querySelector(".resetButton");
+  reset.addEventListener("click", () => {
+    window.location.reload();
+    modal.classList.remove("show");
   });
 };

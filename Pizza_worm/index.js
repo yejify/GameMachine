@@ -33,25 +33,25 @@ function collapseWall() {
     if (head.x === -1 && head.y >= 0 && head.y <= canvasHeight / 10) {
         console.log(head.x, head.y)
         // direction = null
-        alert('게임 오버!')
+        alert(`게임 오버! score : ${score}`)
         resetGame();
     }
     else if (head.y === -1 && head.x >= 0 && head.x <= canvasWidth / 10) {
         console.log(head.x, head.y)
-        alert('게임 오버!')
+        alert(`게임 오버! score : ${score}`)
         // direciton = null
         resetGame();
     }
     else if (head.x === canvasWidth / 10 && head.y >= 0 && head.y <= canvasHeight / 10) {
         console.log(head.x, head.y)
         // direction = null
-        alert('게임 오버!')
+        alert(`게임 오버! score : ${score}`)
         resetGame();
     }
     else if (head.y === canvasHeight / 10 && head.x >= 0 && head.x <= canvasWidth / 10) {
         console.log(head.x, head.y)
         // direction = null
-        alert('게임 오버!')
+        alert(`게임 오버! score : ${score}`)
         resetGame();
     }
 }
@@ -59,7 +59,7 @@ function collapseWall() {
 function wormHeadTailCrush() {
     for (let i = 2; i < worm.length; i++) {
         if (worm[0].x === worm[i - 1].x && worm[0].y === worm[i - 1].y) {
-            alert('게임 오버!')
+            alert(`게임 오버! score : ${score}`)
             resetGame();
         }
     }

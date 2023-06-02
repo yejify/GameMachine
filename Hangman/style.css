@@ -32,19 +32,28 @@ button {
 }
 
 body {
-  background-color: #2e294e;
+  /* background-color: #2e294e; */
+  background-image: url("../assets/hangManBg.png");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: "NeoDunggeunmo";
 }
 
 .container {
   text-align: center;
   /* margin-top: 20px; */
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container h1 {
-  color: #d399b9;
+  color: #fff;
   font-size: 50px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .container canvas {
@@ -57,7 +66,7 @@ body {
   display: flex;
   gap: 0 10px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .container ul li {
   font-size: 35px;
@@ -77,12 +86,12 @@ body {
 .buttons {
   max-width: 800px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .buttons button {
   width: 40px;
   height: 40px;
-  background-color: #041638;
+  background-color: #8066e8;
   color: #fff;
   font-size: 15px;
   margin-top: 10px;
@@ -95,11 +104,12 @@ body {
 }
 
 .buttons button:hover {
-  border: 1px solid #fff;
+  border: 2px solid #fff;
 }
 
 .buttons button.active {
-  background-color: #202346;
+  background-color: #42337f;
+
   color: #555472;
   pointer-events: none;
 }
@@ -108,18 +118,74 @@ p.life {
   color: #a52a2a;
   font-size: 30px;
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
-button.again {
-  margin-top: 20px;
+button.resetButton {
+  display: block;
+  box-sizing: border-box;
   color: #fff;
-  background-color: #d399b9;
-  padding: 5px 10px;
-  border-radius: 5px;
+  background-color: #f39ccc;
+  border-radius: 10px;
+  font-size: 10px;
   cursor: pointer;
+  padding: 8px 15px;
+  margin-top: 0px;
+  margin: 0 auto;
 }
 
-button.again:hover {
-  border: 1px solid #fff;
+button.resetButton:hover {
+  background-color: #f289c3;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 200px;
+  display: none;
+  background-color: #f2f196;
+  text-align: center;
+  border-radius: 20px;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal strong {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 55px;
+  color: #f39ccc;
+}
+
+.home {
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid white;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 7px 12px;
+  margin-top: 15px;
+}
+
+.home:hover {
+  border: 2px solid #fff;
+  background-color: #f2f085;
+}
+
+.correctAnswer {
+  color: #b1397b;
+  display: inline-block;
+  font-size: 30px;
+  border-bottom: 3px solid #b1397b;
+  margin: 0 auto;
+  margin-bottom: 15px;
 }
