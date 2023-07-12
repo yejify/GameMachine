@@ -1,65 +1,66 @@
 @font-face {
-    font-family: 'NeoDunggeunmo';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'NeoDunggeunmo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 ul,
 li {
-    list-style: none;
-    margin: 0;
-    border: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 button {
-    background: inherit;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    overflow: visible;
-    cursor: pointer
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
 }
 
 body {
-    background-color: black;
-    background-image: url(./assets/gameMachine.png);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'NeoDunggeunmo';
+  background-color: black;
+  background-image: url(./assets/gameMachine.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'NeoDunggeunmo';
 }
 
 .title {
-    color: white;
-    text-align: center;
-    font-size: 80px;
-    text-shadow: 4px 5px 6px rgb(106, 39, 39);
+  color: white;
+  text-align: center;
+  font-size: 80px;
+  text-shadow: 4px 5px 6px rgb(106, 39, 39);
 }
 
 .flex-container {
-    display: flex;
-    gap: 20px;
-    margin: 20px auto;
-    width: 60%;
-    color: white;
+  display: flex;
+  gap: 20px;
+  margin: 20px auto;
+  width: 60%;
+  color: white;
 }
 
 .flex-container:nth-child(2) {
-    margin-top: 170px;
-    width: 55%;
+  margin-top: 120px;
+  width: 55%;
 }
 
 .game-item {
-    margin: 0 auto;
-    /* height: auto; */
-    /* width: 220px; */
+  margin: 0 auto;
+  /* height: auto; */
+  /* width: 220px; */
 }
 
 .game-item img {
-    display:block;
-    margin: 0 auto;
-	width:100%;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
 }
