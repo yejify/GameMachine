@@ -108,21 +108,62 @@ function reloadGame() {
 }
 
 //두더지를 못잡았을 때
-function catchMole(e) {
-  const clickTarget = e.target.getAttribute('id');
+// function catchMole(e) {
+//   const clickTarget = e.target.getAttribute('id');
 
-  if (clickTarget === 'mole') {
-    score++;
-    removeMole();
-  } else {
-    removeMole();
-  }
+//   if (clickTarget === 'mole') {
+//     score++;
+//     removeMole();
+//   } else {
+//     removeMole();
+//   }
 
-  randomCreateMole();
-}
+//   randomCreateMole();
+// }
 
 //두더지 잡기 클릭이벤트
 document.querySelector('ul').addEventListener('click', catchMole);
 
 //restart 버튼 클릭이벤트
 document.querySelector('#restartBtn').addEventListener('click', reloadGame);
+
+//두더지 클릭하면 사라짐, 새로운 두더지 등장
+let moleCount = 0;
+
+function catchMole(e) {
+  const clickTarget = e.target.getAttribute('id');
+
+  if (clickTarget === 'mole') {
+    score++;
+    removeMole();
+    moleCount++;
+    if (moleCount <= 3) {
+      randomCreateMole();
+    } else {
+      endGame();
+    }
+  } else {
+    removeMole();
+    moleCount++;
+    if (moleCount <= 3) {
+      randomCreateMole();
+    } else {
+      endGame();
+    }
+  }
+}
+
+//게임 종료 처리
+function endGame() {
+  const ground = document.querySelector('#ground');
+  const gameResult = document.querySelector('#gameResult');
+  ground.classList.add('a11y-hidden');
+  gameResult.classList.remove('a11y-hidden');
+
+  //score 보여주기
+  const resultScore = document.querySelector('#resultScore');
+  resultScore.textContent = score * 10;
+}
+
+//두더지 잡기 클릭이벤트
+document.querySelector('ul').addEventListener('click', catchMole);
