@@ -127,8 +127,8 @@ document.querySelector('ul').addEventListener('click', catchMole);
 //restart 버튼 클릭이벤트
 document.querySelector('#restartBtn').addEventListener('click', reloadGame);
 
-//두더지 클릭하면 사라짐, 새로운 두더지 등장
-let moleCount = 0;
+// 두더지 클릭하면 사라짐, 새로운 두더지 등장
+let missedCount = 0;
 
 function catchMole(e) {
   const clickTarget = e.target.getAttribute('id');
@@ -136,16 +136,11 @@ function catchMole(e) {
   if (clickTarget === 'mole') {
     score++;
     removeMole();
-    moleCount++;
-    if (moleCount <= 3) {
-      randomCreateMole();
-    } else {
-      endGame();
-    }
+    randomCreateMole();
   } else {
-    removeMole();
-    moleCount++;
-    if (moleCount <= 3) {
+    missedCount++;
+    if (missedCount <= 3) {
+      removeMole();
       randomCreateMole();
     } else {
       endGame();
