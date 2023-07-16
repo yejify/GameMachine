@@ -153,14 +153,25 @@ function catchMole(e) {
   }
 }
 
-//게임 종료 처리
+// //게임 종료 처리
+// function endGame() {
+//   const ground = document.querySelector('#ground');
+//   const gameResult = document.querySelector('#gameResult');
+//   ground.classList.add('a11y-hidden');
+//   gameResult.classList.remove('a11y-hidden');
+
+//   //score 보여주기
+//   const resultScore = document.querySelector('#resultScore');
+//   resultScore.textContent = score * 10;
+// }
+
 function endGame() {
   const ground = document.querySelector('#ground');
   const gameResult = document.querySelector('#gameResult');
   ground.classList.add('a11y-hidden');
   gameResult.classList.remove('a11y-hidden');
 
-  //score 보여주기
+  // score 보여주기
   const resultScore = document.querySelector('#resultScore');
   resultScore.textContent = score * 10;
 }
