@@ -2,6 +2,7 @@
 
 ## 2048
 
+<img width="200px" src="https://github.com/yejify/GameMachine/blob/c2b991d5c29eecd416ab5afe73584ee80b580369/assets/2048_intro.png">
 <details>
 <summary>🏓 게임설명</summary>
 
@@ -9,7 +10,9 @@
 
 게임의 목표는 2048 숫자를 만드는 것입니다.
 
-### 🎮 게임로직
+</details>
+<details>
+<summary>🎮 게임로직</summary>
 
 1. 4x4 그리드를 초기화합니다.
 2. 빈 칸에 2 또는 4의 숫자를 넣습니다.
