@@ -2,7 +2,7 @@
 
 ## 2048
 
-<img width="200px" src="https://github.com/yejify/GameMachine/blob/c2b991d5c29eecd416ab5afe73584ee80b580369/assets/2048_intro.png">
+<img width="400px" src="https://github.com/yejify/GameMachine/blob/c2b991d5c29eecd416ab5afe73584ee80b580369/assets/2048_intro.png">
 <details>
 <summary>🏓 게임설명</summary>
 
@@ -30,10 +30,13 @@
 
 ## Card match game
 
+<img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Card_match_game_intro.png">
 <details>
 <summary>🏓 게임설명</summary>
 
-### 🎮 게임로직
+</details>
+<details>
+<summary>🎮 게임로직</summary>
 
 </details>
 
@@ -41,6 +44,7 @@
 
 ## Hangman
 
+<img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Hangman_intro.png">
 <details>
 <summary>🏓 게임설명</summary>
 
@@ -54,7 +58,9 @@
 
 다 깎일 경우에는 행맨이 최종적으로 그려지게 됩니다.
 
-### 🎮 게임로직
+</details>
+<details>
+<summary>🎮 게임로직</summary>
 
 - 1.  list에 있는 단어 중에서 랜덤으로 선택된 단어의 길이에 따라 화면에 빈칸 생성
 
@@ -71,6 +77,7 @@
 
 ## Pizza worm
 
+<img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Pizza_worm_intro.png">
 <details>
 <summary>🏓 게임설명</summary>
 
@@ -82,7 +89,9 @@
 4. 지렁이의 머리와 몸이 닿게 되더라도 게임 오버
 5. 화살표 키와 게임 내의 up,down,left,right 버튼 사용 가능
 
-### 🎮 게임로직
+</details>
+<details>
+<summary>🎮 게임로직</summary>
 
 1. 게임 start 버튼 클릭 시 게임 시작
 2. 피자와 지렁이가 canvas 내에 생성
@@ -97,6 +106,7 @@
 
 ## Rock scissors paper
 
+<img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Rock_scissors_paper_intro.png">
 <details>
 <summary>🏓 게임설명</summary>
 
@@ -106,7 +116,9 @@
 
 3가지의 승패를 가를수 있으며, 총 10번의 기회중 몇번을 이겼는지 score에 확인 가능합니다.
 
-### 🎮 게임로직
+</details>
+<details>
+<summary>🎮 게임로직</summary>
 
 1. 사용자가 가진 기회는 총 10회
 2. 가위,바위,보 중 내고 싶은 이미지를 클릭
@@ -120,14 +132,16 @@
 
 ## Tic tac toe
 
+<img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Tic_tac_toe_intro.png">
 <details>
 <summary>🏓 게임설명</summary>
 
 틱택토는 3x3 그리드에서 플레이하는 게임입니다.
 게임의 목표는 그리드에서 선택한 이미지의 수평, 수직 또는 대각선을 먼저 형성하는 것입니다.
 
-### 🎮 게임로직
-
+</details>
+<details>
+<summary>🎮 게임로직</summary>
 1. 순서를 정하기 위해 모양을 고릅니다.
 2. 컴퓨터의 차례에는 플레이어가 셀을 선택하지 못 합니다.
 3. 승자가 있을 경우, 승자에게 1점이 주어집니다.
@@ -138,6 +152,7 @@
 
 ## Whack a mole
 
+<img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Whack_a_mole_intro.png">
 <details>
 <summary>🏓 게임설명</summary>
 
@@ -145,7 +160,9 @@
 
 총 10번의 기회 중 몇 번을 성공했는지 score로 확인 가능합니다.
 
-### 🎮 게임로직
+</details>
+<details>
+<summary>🎮 게임로직</summary>
 
 9개의 두더지 구멍이 처음 화면에 나옴
 
