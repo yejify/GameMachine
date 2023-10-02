@@ -1,6 +1,7 @@
 # Game Machine
 
 ## 2048
+### [이지수](https://github.com/easyxxu)
 
 <img width="400px" src="https://github.com/yejify/GameMachine/blob/c2b991d5c29eecd416ab5afe73584ee80b580369/assets/2048_intro.png">
 <details>
@@ -29,6 +30,7 @@
 ---
 
 ## Card match game
+### [김용덕](https://github.com/yongdeok97)
 
 <img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Card_match_game_intro.png">
 <details>
@@ -43,6 +45,7 @@
 ---
 
 ## Hangman
+### [오세원](https://github.com/sewon-O)
 
 <img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Hangman_intro.png">
 <details>
@@ -76,6 +79,7 @@
 ---
 
 ## Pizza worm
+### [강윤정](https://github.com/Yunjung324)
 
 <img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Pizza_worm_intro.png">
 <details>
@@ -105,6 +109,7 @@
 ---
 
 ## Rock scissors paper
+### [이수아](https://github.com/suconpa)
 
 <img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Rock_scissors_paper_intro.png">
 <details>
@@ -131,6 +136,7 @@
 ---
 
 ## Tic tac toe
+### [임수정](https://github.com/sujung-lim)
 
 <img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Tic_tac_toe_intro.png">
 <details>
@@ -151,6 +157,7 @@
 ---
 
 ## Whack a mole
+### [김예지](https://github.com/yejify)
 
 <img width="400px" src="https://github.com/yejify/GameMachine/blob/d293adfe3f92d912e0a0fc42b37f8b7a83b8cfa6/assets/Whack_a_mole_intro.png">
 <details>
